@@ -3,10 +3,13 @@ import Card from './../card/Card';
 
 class List extends Component {
   render() {
+    const cards = this.props.cards.map(card => {
+      return <Card text={card.text} />;
+    })
     return (
       <div className="list">
         <div className="list__name">{this.props.name}</div>
-        <Card />
+        <div className="list__cards">{cards}</div>
       </div>
     );
   }

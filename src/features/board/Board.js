@@ -9,10 +9,10 @@ class Board extends Component {
         name: 'Список дел',
         cards: [
           {
-            name: 'card1'
+            text: 'card1'
           },
           {
-            name: 'card2'
+            text: 'card2'
           }
         ]
       },
@@ -35,12 +35,12 @@ class Board extends Component {
   }
   render() {
     const lists = this.state.data.map(list => {
-      return <List name={list.name} />;
+      return <List name={list.name} cards={list.cards} />;
     });
     return (
       <div className="board">
         <div className="board__name">Personal</div>
-        <div>{lists}</div>
+        <div className="board__lists">{lists}</div>
       </div>
     );
   }

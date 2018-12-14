@@ -4,7 +4,7 @@ class Card extends Component {
   render() {
     return (
       <div className="card">
-        <div className="card__text">Test</div>
+        <div className="card__text">{this.props.text}</div>
         <b className="card__btn-edit">edit</b>
       </div>
     );
