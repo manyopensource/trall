@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import List from './../list/List';
+import './Board.scss';
 
 class Board extends Component {
   constructor(props) {
@@ -13,20 +14,89 @@ class Board extends Component {
           },
           {
             text: 'card2'
+          },
+          {
+            text: 'card3'
+          },
+          {
+            text: 'card4'
+          },
+          {
+            text: 'card5'
+          },
+          {
+            text: 'card6'
           }
         ]
       },
       {
         name: 'По работе',
-        cards: []
+        cards: [
+          {
+            text: 'card1'
+          },
+          {
+            text: 'card2'
+          },
+          {
+            text: 'card3'
+          },
+          {
+            text: 'card4'
+          },
+          {
+            text: 'card5'
+          },
+          {
+            text: 'card6'
+          }
+        ]
       },
       {
         name: 'Что купить',
-        cards: []
+        cards: [
+          {
+            text: 'card1'
+          },
+          {
+            text: 'card2'
+          },
+          {
+            text: 'card3'
+          },
+          {
+            text: 'card4'
+          },
+          {
+            text: 'card5'
+          },
+          {
+            text: 'card6'
+          }
+        ]
       },
       {
         name: 'Цели',
-        cards: []
+        cards: [
+          {
+            text: 'card1'
+          },
+          {
+            text: 'card2'
+          },
+          {
+            text: 'card3'
+          },
+          {
+            text: 'card4'
+          },
+          {
+            text: 'card5'
+          },
+          {
+            text: 'card6'
+          }
+        ]
       }
     ];
     this.state = {
@@ -40,7 +110,7 @@ class Board extends Component {
     return (
       <div className="board">
         <div className="board__name">Personal</div>
-        <div className="board__lists">{lists}</div>
+        <div className="board__lists clrfx">{lists}</div>
       </div>
     );
   }

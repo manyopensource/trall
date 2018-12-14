@@ -1,0 +1,20 @@
+.list {
+    // float: left;
+    width: 350px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 20px;
+    &__inner {
+        margin: 0 10px;
+        padding: 12px;
+        background: rgb(255, 244, 146);
+        border-radius: 6px;
+    }
+    &__name {
+        font-size: 16px;
+        // padding: 
+    }
+    &__cards {
+        // margin-top: ;
+    }
+}

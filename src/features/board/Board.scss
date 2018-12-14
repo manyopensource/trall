@@ -1,6 +1,15 @@
 .board {
+    padding: 20px;
+    // background: #ddf1fd;
     $this: &;
     &__name {
-        
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+    &__lists {
+        margin: 0 -10px;
+        // margin-top: 25px;
+        font-size: 0;
     }
 }
