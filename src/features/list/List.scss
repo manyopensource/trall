@@ -17,4 +17,13 @@
     &__cards {
         // margin-top: ;
     }
+    &__adding-new {
+        font-size: 14px;
+        color: gray;
+        background: white;
+        padding: 8px 12px;
+        border-radius: 6px;
+        margin-top: 12px;
+        user-select: none;
+    }
 }
