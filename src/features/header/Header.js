@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
-import logo from './../../logo.svg';
+import logo from './../../trall.svg';
 import './Header.scss';
 
 class Header extends Component {
-    render() {
-      return (
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1>Trall (similar to Trello)</h1>
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-      );
-    }
+  render() {
+    return (
+      <header className="header">
+        <div className="header__leftside">
+          <a href="/" className="header__trademark">
+            <img src={logo} className="header__logo" alt="Trall" />
+            <b className="header__company">Trall</b>
+          </a>
+        </div>
+      </header>
+    );
   }
-  
-  export default Header;
+}
+
+export default Header;

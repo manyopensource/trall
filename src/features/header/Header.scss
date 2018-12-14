@@ -1,13 +1,30 @@
-$colorpoint1: #282c34;
+$colorpoint1: #1ba309;
 $colorpoint2: white;
 
-.App-header {
+$paddingValue: 20px;
+
+.header {
     background-color: $colorpoint1;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
     color: $colorpoint2;
+    padding: $paddingValue;
+    &__leftside {
+        display: inline-block;
+        vertical-align: top;
+    }
+    &__trademark {
+        color: $colorpoint2;
+        text-decoration: none;
+        display: inline-block;
+        display: flex;
+        align-items: center;
+    }
+    &__logo {
+        height: 6vmin;
+        vertical-align: top;
+    }
+    &__company {
+        font-size: 18px;
+        // font-weight: normal;
+        margin-left: 10px;
+    }
 }
