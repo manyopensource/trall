@@ -7,8 +7,8 @@ class List extends Component {
     console.log('click');
   }
   render() {
-    const cards = this.props.cards.map(card => {
-      return <Card text={card.text} />;
+    const cards = this.props.cards.map((card, index) => {
+      return <Card key={card.id} id={card.id} text={card.text} />;
     });
     return (
       <div className="list">

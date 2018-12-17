@@ -7,14 +7,25 @@
     &:first-child {
         // margin-top: 0;
     }
+    &__id {
+        font-size: 12px;
+        margin-right: 6px;
+        color: #999;
+        user-select: none;
+    }
     &__text {
         font-size: 14px;
         margin-bottom: 8px;
+        color: #333;
     }
-    &__btn-edit {
+    &__btn {
         font-size: 12px;
-        color: gray;
+        color: #999;
         cursor: pointer;
+        margin-left: 10px;
+        &:first-child {
+            margin-left: 0;
+        }
         &:hover {
             color: red;
         }

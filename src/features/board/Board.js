@@ -10,21 +10,27 @@ class Board extends Component {
         name: 'Список дел',
         cards: [
           {
+            id: 5,
             text: 'Реализовать хранение данных в localStorage'
           },
           {
+            id: 2,
             text: 'Редактирование названия списка'
           },
           {
+            id: 3,
             text: 'Редактирование названия доски (необязательно)'
           },
           {
+            id: 4,
             text: 'Редактирование текста карточки'
           },
           {
+            id: 1,
             text: 'Добавление комметариев к карточке'
           },
           {
+            id: 6,
             text: 'Привязка данных к пользователям (тоже скорее всего необязательно)'
           }
         ]
@@ -33,21 +39,27 @@ class Board extends Component {
         name: 'По работе',
         cards: [
           {
+            id: 9,
             text: 'card1'
           },
           {
+            id: 8,
             text: 'card2'
           },
           {
+            id: 12,
             text: 'card3'
           },
           {
+            id: 7,
             text: 'card4'
           },
           {
+            id: 14,
             text: 'card5'
           },
           {
+            id: 16,
             text: 'card6'
           }
         ]
@@ -56,21 +68,27 @@ class Board extends Component {
         name: 'Что купить',
         cards: [
           {
+            id: 11,
             text: 'card1'
           },
           {
+            id: 10,
             text: 'card2'
           },
           {
+            id: 15,
             text: 'card3'
           },
           {
+            id: 13,
             text: 'card4'
           },
           {
+            id: 17,
             text: 'card5'
           },
           {
+            id: 20,
             text: 'card6'
           }
         ]
@@ -79,21 +97,27 @@ class Board extends Component {
         name: 'Цели',
         cards: [
           {
+            id: 18,
             text: 'card1'
           },
           {
+            id: 21,
             text: 'card2'
           },
           {
+            id: 19,
             text: 'card3'
           },
           {
+            id: 22,
             text: 'card4'
           },
           {
+            id: 23,
             text: 'card5'
           },
           {
+            id: 24,
             text: 'card6'
           }
         ]
@@ -104,8 +128,8 @@ class Board extends Component {
     };
   }
   render() {
-    const lists = this.state.data.map(list => {
-      return <List name={list.name} cards={list.cards} />;
+    const lists = this.state.data.map((list, index) => {
+      return <List key={index} name={list.name} cards={list.cards} />;
     });
     return (
       <div className="board">

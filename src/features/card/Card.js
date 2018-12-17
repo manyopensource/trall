@@ -1,12 +1,29 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import FullCard from './../full-card/FullCard';
 import './Card.scss';
 
 class Card extends Component {
+  openCard() {
+    console.log('openCard');
+  }
+
+  editCard() {
+    console.log('editCard');
+  }
+
   render() {
     return (
       <div className="card">
-        <div className="card__text">{this.props.text}</div>
-        <b className="card__btn-edit">edit</b>
+        <div className="card__text"><b className="card__id">#{this.props.id}</b>{this.props.text}</div>
+        <div className="card__btns">
+          <b className="card__btn card__btn-open" onClick={this.openCard.bind(this)}>
+            open
+          </b>
+          <b className="card__btn card__btn-edit" onClick={this.editCard.bind(this)}>
+            edit
+          </b>
+        </div>
       </div>
     );
   }
