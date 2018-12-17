@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import FullCard from './../full-card/FullCard';
+import FullCard from './FullCard';
+import EditCard from './EditCard';
 import './Card.scss';
 
 class Card extends Component {
@@ -10,6 +11,10 @@ class Card extends Component {
 
   editCard() {
     console.log('editCard');
+  }
+
+  deleteCard() {
+    console.log('deleteCard');
   }
 
   render() {
@@ -22,6 +27,9 @@ class Card extends Component {
           </b>
           <b className="card__btn card__btn-edit" onClick={this.editCard.bind(this)}>
             edit
+          </b>
+          <b className="card__btn card__btn-delete" onClick={this.deleteCard.bind(this)}>
+            delete
           </b>
         </div>
       </div>
