@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import FullCard from './FullCard';
 import './EditCard.scss';
 
 class EditCard extends Component {

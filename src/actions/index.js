@@ -1,6 +1,6 @@
-import { ADD_CARD } from './../constants/action-types';
+import { ADD_TASK } from './../constants/action-types';
 
-export const addCard = task => ({
-  type: ADD_CARD,
+export const addTask = task => ({
+  type: ADD_TASK,
   payload: task
 });

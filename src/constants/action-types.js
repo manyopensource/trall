@@ -1,1 +1,1 @@
-export const ADD_TASK = 'ADD_CARD';
+export const ADD_TASK = 'ADD_TASK';
