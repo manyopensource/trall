@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import List from './../list/List';
 import './Board.scss';
 
@@ -96,10 +97,12 @@ class Board extends Component {
         ]
       }
     ];
+
     this.state = {
       tasks: tasks ? tasks : defaultTasks
     };
   }
+
   render() {
     const lists = this.state.tasks.map((list, index) => {
       return <List key={index} name={list.name} cards={list.cards} />;
