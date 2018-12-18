@@ -3,6 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import store from './stores/index';
+import { addTask } from './actions/index';
+
+window.store = store;
+window.addTask = addTask;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -1,4 +1,4 @@
-import { ADD_CARD } from './../constants/action-types';
+import { ADD_TASK } from './../constants/action-types';
 
 const initialState = {
   tasks: []
@@ -6,7 +6,7 @@ const initialState = {
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_CARD:
+        case ADD_TASK:
             // state.tasks.push(action.payload);
             return {...state, tasks: [...state.tasks, action.payload]};
         default:
