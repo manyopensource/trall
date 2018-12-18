@@ -20,7 +20,7 @@ class Card extends Component {
   render() {
     return (
       <div className="card">
-        <div className="card__text"><b className="card__id">#{this.props.id}</b>{this.props.text}</div>
+        <div className="card__text"><b className="card__id">#{this.props.id}</b>{this.props.title}</div>
         <div className="card__btns">
           <b className="card__btn card__btn-open" onClick={this.openCard.bind(this)}>
             open

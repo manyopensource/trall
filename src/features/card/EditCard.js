@@ -16,11 +16,16 @@ class EditCard extends Component {
       value: value
     });
   }
+  hideTextarea = event => {
+    this.setState({
+      showFullCard: true
+    });
+  }
   render() {
     return (
       <label className="edit-card" data-value={this.state.value}>
         {/* <div className="card__text"><textarea>{this.props.text}</textarea></div> */}
-        <textarea className="edit-card__text" placeholder="Add title to this card" onChange={this.saveValue}>{this.props.text}</textarea>
+        <textarea className="edit-card__text" placeholder="Add title to this card" onChange={this.saveValue} onBlur={this.hideTextarea}>{this.props.text}</textarea>
       </label>
     );
   }

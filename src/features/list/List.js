@@ -21,7 +21,7 @@ class List extends Component {
   }
   render() {
     const cards = this.props.cards.map((card, index) => {
-      return <Card key={card.id} id={card.id} text={card.text} />;
+      return <Card key={card.id} id={card.id} title={card.title} />;
     });
     return (
       <div className="list">

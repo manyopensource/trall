@@ -5,33 +5,58 @@ import './Board.scss';
 class Board extends Component {
   constructor(props) {
     super(props);
-    const data = [
+    let tasks;
+    if (typeof Storage !== 'undefined') {
+      tasks = window.localStorage.getItem('tasks');
+    }
+
+    const tasks = [
       {
         name: 'Список дел',
         cards: [
           {
             id: 5,
-            text: 'Реализовать хранение данных в localStorage'
+            title: 'Реализовать хранение данных в localStorage',
+            description: '',
+            comments: [
+              {
+                user_id: 1,
+                user_name: 'Anonimous',
+                user_login: 'nightfury',
+                text: "That's right"
+              }
+            ]
           },
           {
             id: 2,
-            text: 'Редактирование названия списка'
+            title: 'Редактирование названия списка',
+            description: '',
+            comments: []
           },
           {
             id: 3,
-            text: 'Редактирование названия доски (необязательно)'
+            title: 'Редактирование названия доски (необязательно)',
+            description: '',
+            comments: []
           },
           {
             id: 4,
-            text: 'Редактирование текста карточки'
+            title: 'Редактирование текста карточки',
+            description: '',
+            comments: []
           },
           {
             id: 1,
-            text: 'Добавление комментариев к карточке'
+            title: 'Добавление комментариев к карточке',
+            description: '',
+            comments: []
           },
           {
             id: 6,
-            text: 'Привязка данных к пользователям (тоже скорее всего необязательно)'
+            title:
+              'Привязка данных к пользователям (тоже скорее всего необязательно)',
+            description: '',
+            comments: []
           }
         ]
       },
@@ -39,28 +64,10 @@ class Board extends Component {
         name: 'По работе',
         cards: [
           {
-            id: 9,
-            text: 'card1'
-          },
-          {
             id: 8,
-            text: 'card2'
-          },
-          {
-            id: 12,
-            text: 'card3'
-          },
-          {
-            id: 7,
-            text: 'card4'
-          },
-          {
-            id: 14,
-            text: 'card5'
-          },
-          {
-            id: 16,
-            text: 'card6'
+            title: 'card1',
+            description: '',
+            comments: []
           }
         ]
       },
@@ -68,28 +75,10 @@ class Board extends Component {
         name: 'Что купить',
         cards: [
           {
-            id: 11,
-            text: 'card1'
-          },
-          {
-            id: 10,
-            text: 'card2'
-          },
-          {
-            id: 15,
-            text: 'card3'
-          },
-          {
-            id: 13,
-            text: 'card4'
-          },
-          {
-            id: 17,
-            text: 'card5'
-          },
-          {
-            id: 20,
-            text: 'card6'
+            id: 9,
+            title: 'card1',
+            description: '',
+            comments: []
           }
         ]
       },
@@ -97,38 +86,20 @@ class Board extends Component {
         name: 'Цели',
         cards: [
           {
-            id: 18,
-            text: 'card1'
-          },
-          {
-            id: 21,
-            text: 'card2'
-          },
-          {
-            id: 19,
-            text: 'card3'
-          },
-          {
-            id: 22,
-            text: 'card4'
-          },
-          {
-            id: 23,
-            text: 'card5'
-          },
-          {
-            id: 24,
-            text: 'card6'
+            id: 7,
+            title: 'card1',
+            description: '',
+            comments: []
           }
         ]
       }
     ];
     this.state = {
-      data: data
+      tasks: tasks
     };
   }
   render() {
-    const lists = this.state.data.map((list, index) => {
+    const lists = this.state.tasks.map((list, index) => {
       return <List key={index} name={list.name} cards={list.cards} />;
     });
     return (
