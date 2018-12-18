@@ -7,10 +7,12 @@ class Board extends Component {
     super(props);
     let tasks;
     if (typeof Storage !== 'undefined') {
-      tasks = window.localStorage.getItem('tasks');
+      if (window.localStorage.getItem('tasks')) {
+        tasks = JSON.parse(window.localStorage.getItem('tasks'));
+      }
     }
 
-    const tasks = [
+    const defaultTasks = [
       {
         name: 'Список дел',
         cards: [
@@ -95,7 +97,7 @@ class Board extends Component {
       }
     ];
     this.state = {
-      tasks: tasks
+      tasks: tasks ? tasks : defaultTasks
     };
   }
   render() {
