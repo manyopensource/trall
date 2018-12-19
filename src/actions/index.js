@@ -1,6 +1,6 @@
 import { INIT_STATE, CREATE_TASK } from '../constants/ActionTypes';
 
-export const initialState = state => {
+export const initialState = () => {
   let localState;
   if (typeof Storage !== 'undefined') {
     if (window.localStorage.getItem('localState')) {
@@ -113,9 +113,19 @@ export const initialState = state => {
     ]
   };
 
+  let globalState = defaultState;
+
+  if (localState) {
+    globalState = localState;
+  } else {
+    if (typeof Storage !== 'undefined') {
+      window.localStorage.setItem('localState', JSON.stringify(globalState));
+    }
+  }
+
   return {
     type: INIT_STATE,
-    payload: localState ? localState : defaultState
+    payload: globalState
   };
 };
 

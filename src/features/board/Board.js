@@ -6,6 +6,7 @@ import './Board.scss';
 class Board extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
     let localState;
     if (typeof Storage !== 'undefined') {
       if (window.localStorage.getItem('localState')) {
