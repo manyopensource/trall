@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Textarea from 'react-textarea-autosize';
 import './EditCard.scss';
 
 class EditCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: 'Новая задача'
     };
   }
   saveValue = event => {
@@ -22,8 +23,13 @@ class EditCard extends Component {
   render() {
     return (
       <label className="edit-card" data-value={this.state.value}>
-        {/* <div className="card__text"><textarea>{this.props.text}</textarea></div> */}
-        <textarea className="edit-card__text" placeholder="Add title to this card" onChange={this.saveValue} onBlur={this.hideTextarea}>{this.props.text}</textarea>
+        <Textarea
+          className="edit-card__text" 
+          placeholder="Add title to this card"
+          onChange={this.saveValue}
+          onBlur={this.hideTextarea}
+          defaultValue={this.state.value}
+          autoFocus />
       </label>
     );
   }

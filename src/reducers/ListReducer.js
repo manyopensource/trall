@@ -9,7 +9,7 @@ const initialState = {
   tasks: []
 };
 
-const cardReducer = (state = initialState, action) => {
+const listReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_TASK:
       return { ...state, tasks: [...state.tasks, action.payload] };
@@ -24,4 +24,4 @@ const cardReducer = (state = initialState, action) => {
   }
 };
 
-export default cardReducer;
+export default listReducer;
