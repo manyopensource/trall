@@ -4,7 +4,6 @@ import './Card.scss';
 class Card extends Component {
   openCard() {
     console.log('openCard');
-    console.log(this.props);
   }
 
   editCard() {
