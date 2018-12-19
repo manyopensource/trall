@@ -6,10 +6,10 @@ import './Board.scss';
 class Board extends Component {
   constructor(props) {
     super(props);
-    let tasks;
+    let localState;
     if (typeof Storage !== 'undefined') {
-      if (window.localStorage.getItem('tasks')) {
-        tasks = JSON.parse(window.localStorage.getItem('tasks'));
+      if (window.localStorage.getItem('localState')) {
+        localState = JSON.parse(window.localStorage.getItem('localState'));
       }
     }
 
@@ -98,14 +98,127 @@ class Board extends Component {
       }
     ];
 
-    this.state = {
-      tasks: tasks ? tasks : defaultTasks
+    const defaultState = {
+      users: [
+        {
+          id: 1,
+          name: 'Anonimous',
+          login: 'nightfury',
+          email: '2deserve@gmail.com'
+        }
+      ],
+      boards: [
+        {
+          id: 1,
+          userId: 1,
+          name: 'Personal'
+        }
+      ],
+      lists: [
+        {
+          id: 1,
+          boardId: 1,
+          name: 'Список дел'
+        },
+        {
+          id: 2,
+          boardId: 1,
+          name: 'По работе'
+        },
+        {
+          id: 3,
+          boardId: 1,
+          name: 'Что купить'
+        },
+        {
+          id: 4,
+          boardId: 1,
+          name: 'Цели'
+        }
+      ],
+      cards: [
+        {
+          id: 5,
+          listId: 1,
+          title: 'Реализовать хранение данных в localStorage',
+          description: ''
+        },
+        {
+          id: 2,
+          listId: 1,
+          title: 'Редактирование названия списка',
+          description: ''
+        },
+        {
+          id: 3,
+          listId: 1,
+          title: 'Редактирование названия доски (необязательно)',
+          description: ''
+        },
+        {
+          id: 4,
+          listId: 1,
+          title: 'Редактирование текста карточки',
+          description: ''
+        },
+        {
+          id: 1,
+          listId: 1,
+          title: 'Добавление комментариев к карточке',
+          description: ''
+        },
+        {
+          id: 6,
+          listId: 1,
+          title:
+            'Привязка данных к пользователям (тоже скорее всего необязательно)',
+          description: ''
+        },
+        {
+          id: 8,
+          listId: 2,
+          title: 'card1',
+          description: ''
+        },
+        {
+          id: 9,
+          listId: 3,
+          title: 'card1',
+          description: ''
+        },
+        {
+          id: 7,
+          listId: 4,
+          title: 'card1',
+          description: ''
+        }
+      ],
+      comments: [
+        {
+          id: 1,
+          cardId: 5,
+          userId: 1,
+          text: "That's right"
+        }
+      ]
     };
+
+    this.state = localState ? localState : defaultState;
+  }
+
+  getCardsByListId(id) {
+    let cards = [];
+    this.state.cards.map((card, index) => {
+      if (card.listId === id) {
+        cards.push(card);
+      }
+    });
+    return cards;
   }
 
   render() {
-    const lists = this.state.tasks.map((list, index) => {
-      return <List key={index} name={list.name} cards={list.cards} />;
+    const lists = this.state.lists.map((list, index) => {
+      return <List key={index} name={list.name} cards={this.getCardsByListId(list.id)} />;
     });
     return (
       <div className="board">
