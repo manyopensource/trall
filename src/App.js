@@ -12,6 +12,19 @@ class App extends Component {
       showFullCard: false
     };
   }
+
+  componentDidMount() {
+    const {
+      dispatch,
+      selectedCategory,
+      fetchCategories,
+      fetchPosts
+    } = this.props;
+    //Call like this instead of fetchCategoriesIfNeeded/fetchPostsIfneeded
+    //dispatch(fetchCategories(selectedCategory))
+    //dispatch(fetchPosts(selectedCategory))
+  }
+
   render() {
     return (
       <div className="global-space">

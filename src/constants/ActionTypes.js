@@ -1,3 +1,6 @@
+// FOR INITIALIZING STATE
+export const INIT_STATE = 'INIT_STATE';
+
 // FOR TASKS
 export const CREATE_TASK = 'CREATE_TASK';
 export const READTE_TASK = 'READTE_TASK';
