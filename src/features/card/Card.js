@@ -4,6 +4,7 @@ import './Card.scss';
 class Card extends Component {
   openCard() {
     console.log('openCard');
+    console.log(this.props);
   }
 
   editCard() {
@@ -17,15 +18,27 @@ class Card extends Component {
   render() {
     return (
       <div className="card">
-        <div className="card__text"><b className="card__id">#{this.props.id}</b>{this.props.title}</div>
+        <div className="card__text">
+          <b className="card__id">#{this.props.id}</b>
+          {this.props.title}
+        </div>
         <div className="card__btns">
-          <b className="card__btn card__btn-open" onClick={this.openCard.bind(this)}>
+          <b
+            className="card__btn card__btn-open"
+            onClick={this.openCard.bind(this)}
+          >
             open
           </b>
-          <b className="card__btn card__btn-edit" onClick={this.editCard.bind(this)}>
+          <b
+            className="card__btn card__btn-edit"
+            onClick={this.editCard.bind(this)}
+          >
             edit
           </b>
-          <b className="card__btn card__btn-delete" onClick={this.deleteCard.bind(this)}>
+          <b
+            className="card__btn card__btn-delete"
+            onClick={this.deleteCard.bind(this)}
+          >
             delete
           </b>
         </div>

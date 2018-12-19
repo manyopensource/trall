@@ -1,6 +1,6 @@
 import { INIT_STATE, CREATE_TASK } from '../constants/ActionTypes';
 
-export const initState = state => {
+export const initialState = state => {
   let localState;
   if (typeof Storage !== 'undefined') {
     if (window.localStorage.getItem('localState')) {
@@ -80,7 +80,8 @@ export const initState = state => {
       {
         id: 6,
         listId: 1,
-        title: 'Привязка данных к пользователям (тоже скорее всего необязательно)',
+        title:
+          'Привязка данных к пользователям (тоже скорее всего необязательно)',
         description: ''
       },
       {
@@ -106,6 +107,7 @@ export const initState = state => {
       {
         id: 1,
         cardId: 5,
+        userId: 1,
         text: "That's right"
       }
     ]
