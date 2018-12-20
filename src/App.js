@@ -28,25 +28,19 @@ const mapDispatchToProps = dispatch => {
 };
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      showFullCard: false
-    };
-  }
-
   componentDidMount() {
     const { initialState } = this.props;
     initialState();
   }
 
   render() {
+    console.log('hi',this.props);
     return (
       <div className="global-space">
         <Header />
         <Board />
         <Footer />
-        <FullCard isOpen={this.state.showFullCard} />
+        <FullCard />
       </div>
     );
   }

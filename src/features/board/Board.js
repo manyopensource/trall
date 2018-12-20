@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import List from './../list/List';
 import './Board.scss';
 
 class Board extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     let localState;
     if (typeof Storage !== 'undefined') {
       if (window.localStorage.getItem('localState')) {
@@ -134,7 +132,7 @@ class Board extends Component {
 
   getCardsByListId(id) {
     let cards = [];
-    this.state.cards.map((card, index) => {
+    this.state.cards.forEach(card => {
       if (card.listId === id) {
         cards.push(card);
       }
