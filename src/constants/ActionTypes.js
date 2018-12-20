@@ -1,3 +1,6 @@
+// FOR COUNTER
+export const INCREMENT = 'INCREMENT';
+
 // FOR TASKS
 export const CREATE_TASK = 'CREATE_TASK';
 export const READ_TASK = 'READ_TASK';

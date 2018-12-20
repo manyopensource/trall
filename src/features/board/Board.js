@@ -3,23 +3,24 @@ import List from './../list/List';
 import './Board.scss';
 
 class Board extends Component {
-  getCardsByListId = id => {
-    let cards = [];
-    this.props.cards.forEach(card => {
-      if (card.listId === id) {
-        cards.push(card);
+  getTasksByListId = id => {
+    let tasks = [];
+    this.props.tasks.forEach(task => {
+      if (task.listId === id) {
+        tasks.push(task);
       }
     });
-    return cards;
+    return tasks;
   }
 
   render = () => {
     const lists = this.props.lists.map((list, index) => {
       return (
         <List
-          key={index}
+          key={list.id}
+          id={list.id}
           name={list.name}
-          cards={this.getCardsByListId(list.id)}
+          tasks={this.getTasksByListId(list.id)}
         />
       );
     });

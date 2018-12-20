@@ -43,7 +43,7 @@ const defaultState = {
       name: 'Цели'
     }
   ],
-  cards: [
+  tasks: [
     {
       id: 5,
       listId: 1,
@@ -107,7 +107,8 @@ const defaultState = {
       userId: 1,
       text: "That's right"
     }
-  ]
+  ],
+  counter: 9
 };
 
 let data = defaultState;

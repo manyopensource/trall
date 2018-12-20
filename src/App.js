@@ -7,25 +7,6 @@ import FullCard from './features/card/FullCard';
 import './App.scss';
 import {getUsers} from './selectors'
 
-const mapStateToProps = state => {
-  return {
-    users: getUsers(state),
-    boards: state.boards,
-    lists: state.lists,
-    cards: state.cards,
-    comments: state.comments
-  };
-};
-
-// const mapDispatchToProps = dispatch => {
-//   return bindActionCreators(
-//     {
-//       initialState
-//     },
-//     dispatch
-//   );
-// };
-
 class App extends Component {
   /* componentDidMount() {
     const { initialState } = this.props;
@@ -44,6 +25,16 @@ class App extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    users: getUsers(state),
+    boards: state.boards,
+    lists: state.lists,
+    tasks: state.tasks,
+    comments: state.comments
+  };
+};
 
 export default connect(
   mapStateToProps

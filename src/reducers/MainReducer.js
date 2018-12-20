@@ -2,13 +2,15 @@ import { combineReducers } from 'redux';
 import users from './UserReducer';
 import boards from './BoardReducer';
 import lists from './ListReducer';
-import cards from './CardReducer';
+import tasks from './TaskReducer';
 import comments from './CommentReducer';
+import counter from './CounterReducer';
 
 export default combineReducers({
   users,
   boards,
   lists,
-  cards,
-  comments
+  tasks,
+  comments,
+  counter
 });

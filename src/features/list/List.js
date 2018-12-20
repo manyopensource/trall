@@ -13,39 +13,39 @@ class List extends Component {
 
   editListName = () => {
     console.log('editListName');
-  }
+  };
 
   addCard = () => {
     console.log('addCard');
     this.setState({
       isAddingNew: true
     });
-  }
+    console.log(this.props.id);
+  };
 
   render = () => {
-    const cards = this.props.cards.map((card, index) => {
-      return <Card key={card.id} id={card.id} title={card.title} />;
+    const cards = this.props.tasks.map((task, index) => {
+      return <Card key={task.id} id={task.id} title={task.title} />;
     });
     return (
       <div className="list">
         <div className="list__inner">
-          <div
-            className="list__name"
-            onDoubleClick={this.editListName}
-          >
+          <div className="list__name" onDoubleClick={this.editListName}>
             {this.props.name}
           </div>
           <div className="list__cards">
             {cards}
-            {this.state.isAddingNew && <EditCard />}
+            {this.state.isAddingNew && <EditCard listId={this.props.id} />}
           </div>
-          <div className="list__adding-new" onClick={this.addCard}>
-            Add new
-          </div>
+          {!this.state.isAddingNew && (
+            <div className="list__adding-new" onClick={this.addCard}>
+              Add new
+            </div>
+          )}
         </div>
       </div>
     );
-  }
+  };
 }
 
 export default List;

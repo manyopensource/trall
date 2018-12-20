@@ -1,20 +1,20 @@
 import {
-  CREATE_TASK,
-  READ_TASK,
-  UPDATE_TASK,
-  DELETE_TASK
+  CREATE_LIST,
+  READ_LIST,
+  UPDATE_LIST,
+  DELETE_LIST
 } from './../constants/ActionTypes';
 import data from './../data';
 
 const reducer = (state = data.lists, action) => {
   switch (action.type) {
-    case CREATE_TASK:
+    case CREATE_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
-    case READ_TASK:
+    case READ_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
-    case UPDATE_TASK:
+    case UPDATE_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
-    case DELETE_TASK:
+    case DELETE_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
     default:
       return state;
