@@ -6,7 +6,7 @@ import {
 } from './../constants/ActionTypes';
 import data from './../data';
 
-const reducer = (state = data.comments, action) => {
+const reducer = (state = data, action) => {
   switch (action.type) {
     case CREATE_COMMENT:
       return { ...state, comments: [...state.comments, action.payload] };

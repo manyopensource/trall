@@ -6,7 +6,7 @@ import {
 } from './../constants/ActionTypes';
 import data from './../data';
 
-const reducer = (state = data.cards, action) => {
+const reducer = (state = data, action) => {
   switch (action.type) {
     case CREATE_TASK:
       return { ...state, cards: [...state.cards, action.payload] };
