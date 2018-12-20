@@ -5,10 +5,11 @@ import Board from './features/board/Board';
 import Footer from './features/footer/Footer';
 import FullCard from './features/card/FullCard';
 import './App.scss';
+import {getUsers} from './selectors'
 
 const mapStateToProps = state => {
   return {
-    users: state.users,
+    users: getUsers(state),
     boards: state.boards,
     lists: state.lists,
     cards: state.cards,
@@ -31,7 +32,7 @@ class App extends Component {
     initialState();
   } */
 
-  render() {
+  render = () => {
     console.log(this.props);
     return (
       <div className="global-space">
@@ -45,6 +46,5 @@ class App extends Component {
 }
 
 export default connect(
-  mapStateToProps,
-  null
+  mapStateToProps
 )(App);

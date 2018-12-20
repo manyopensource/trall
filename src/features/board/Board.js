@@ -3,7 +3,7 @@ import List from './../list/List';
 import './Board.scss';
 
 class Board extends Component {
-  getCardsByListId(id) {
+  getCardsByListId = id => {
     let cards = [];
     this.props.cards.forEach(card => {
       if (card.listId === id) {
@@ -13,7 +13,7 @@ class Board extends Component {
     return cards;
   }
 
-  render() {
+  render = () => {
     const lists = this.props.lists.map((list, index) => {
       return (
         <List

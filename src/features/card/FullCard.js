@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './FullCard.scss';
 
 class FullCard extends Component {
-  render() {
+  render = () => {
     if (this.props.isOpen === true) {
       return (
         <div className="full-card">

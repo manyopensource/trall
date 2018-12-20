@@ -11,18 +11,18 @@ class List extends Component {
     };
   }
 
-  editListName() {
+  editListName = () => {
     console.log('editListName');
   }
 
-  addCard() {
+  addCard = () => {
     console.log('addCard');
     this.setState({
       isAddingNew: true
     });
   }
 
-  render() {
+  render = () => {
     const cards = this.props.cards.map((card, index) => {
       return <Card key={card.id} id={card.id} title={card.title} />;
     });
@@ -31,7 +31,7 @@ class List extends Component {
         <div className="list__inner">
           <div
             className="list__name"
-            onDoubleClick={this.editListName.bind(this)}
+            onDoubleClick={this.editListName}
           >
             {this.props.name}
           </div>
@@ -39,7 +39,7 @@ class List extends Component {
             {cards}
             {this.state.isAddingNew && <EditCard />}
           </div>
-          <div className="list__adding-new" onClick={this.addCard.bind(this)}>
+          <div className="list__adding-new" onClick={this.addCard}>
             Add new
           </div>
         </div>

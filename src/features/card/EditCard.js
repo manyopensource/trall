@@ -20,7 +20,7 @@ class EditCard extends Component {
       showFullCard: true
     });
   }
-  render() {
+  render = () => {
     return (
       <label className="edit-card" data-value={this.state.value}>
         <Textarea

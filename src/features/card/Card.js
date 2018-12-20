@@ -2,19 +2,19 @@ import React, { Component } from 'react';
 import './Card.scss';
 
 class Card extends Component {
-  openCard() {
+  openCard = () => {
     console.log('openCard');
   }
 
-  editCard() {
+  editCard = () => {
     console.log('editCard');
   }
 
-  deleteCard() {
+  deleteCard = () => {
     console.log('deleteCard');
   }
 
-  render() {
+  render = () => {
     return (
       <div className="card">
         <div className="card__text">
@@ -24,19 +24,19 @@ class Card extends Component {
         <div className="card__btns">
           <b
             className="card__btn card__btn-open"
-            onClick={this.openCard.bind(this)}
+            onClick={this.openCard}
           >
             open
           </b>
           <b
             className="card__btn card__btn-edit"
-            onClick={this.editCard.bind(this)}
+            onClick={this.editCard}
           >
             edit
           </b>
           <b
             className="card__btn card__btn-delete"
-            onClick={this.deleteCard.bind(this)}
+            onClick={this.deleteCard}
           >
             delete
           </b>

@@ -1,5 +1,3 @@
-
-
 let localState;
 if (typeof Storage !== 'undefined') {
   if (window.localStorage.getItem('localState')) {
