@@ -132,7 +132,7 @@ class Board extends Component {
 
   getCardsByListId(id) {
     let cards = [];
-    this.state.cards.forEach(card => {
+    this.props.cards.forEach(card => {
       if (card.listId === id) {
         cards.push(card);
       }
@@ -141,7 +141,7 @@ class Board extends Component {
   }
 
   render() {
-    const lists = this.state.lists.map((list, index) => {
+    const lists = this.props.lists.map((list, index) => {
       return (
         <List
           key={index}

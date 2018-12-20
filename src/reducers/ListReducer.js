@@ -4,9 +4,9 @@ import {
   UPDATE_TASK,
   DELETE_TASK
 } from './../constants/ActionTypes';
-import { initialState } from './../actions';
+import data from './../data';
 
-const listReducer = (state = initialState, action) => {
+const reducer = (state = data.lists, action) => {
   switch (action.type) {
     case CREATE_TASK:
       return { ...state, lists: [...state.lists, action.payload] };
@@ -21,4 +21,4 @@ const listReducer = (state = initialState, action) => {
   }
 };
 
-export default listReducer;
+export default reducer;
