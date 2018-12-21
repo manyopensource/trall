@@ -11,8 +11,6 @@ class EditCard extends Component {
     this.state = {
       value: ''
     };
-    const {increment} = this.props;
-    increment(this.props.counter + 1);
   }
 
   saveValue = event => {
@@ -29,13 +27,23 @@ class EditCard extends Component {
   };
 
   createTask = () => {
-    const { createTask } = this.props;
-    createTask({
+    let title = this.state.value.trim();
+    if (title === '') {
+      this.textarea.focus();
+      return false;
+    }
+    this.props.createTask({
       id: this.props.counter,
       listId: this.props.listId,
-      title: this.state.value,
+      title: title,
       description: ''
     });
+    this.props.increment();
+    this.setState({
+      value: ''
+    });
+    this.textarea.value = '';
+    this.textarea.focus();
   }
 
   render = () => {
@@ -45,6 +53,7 @@ class EditCard extends Component {
           <Textarea
             className="edit-card__text"
             placeholder="Add title to this card"
+            inputRef={tag => (this.textarea = tag)}
             onChange={this.saveValue}
             onBlur={this.hideTextarea}
             defaultValue={this.state.value}

@@ -3,9 +3,8 @@ import {
   CREATE_TASK
 } from '../constants/ActionTypes';
 
-export const increment = task => ({
-  type: INCREMENT,
-  payload: task
+export const increment = () => ({
+  type: INCREMENT
 });
 
 export const createTask = task => ({

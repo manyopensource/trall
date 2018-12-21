@@ -3,7 +3,7 @@ import data from './../data';
 
 const reducer = (state = data.counter, action) => {
   if (action.type === INCREMENT) {
-    return action.payload;
+    return state + 1;
   } else {
     return state;
   }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { increment } from './actions';
 import Header from './features/header/Header';
 import Board from './features/board/Board';
 import Footer from './features/footer/Footer';
@@ -8,13 +10,13 @@ import './App.scss';
 import {getUsers} from './selectors'
 
 class App extends Component {
-  /* componentDidMount() {
-    const { initialState } = this.props;
-    initialState();
-  } */
+  constructor(props) {
+    super(props);
+
+    this.props.increment();
+  }
 
   render = () => {
-    console.log(this.props);
     return (
       <div className="global-space">
         <Header />
@@ -32,10 +34,21 @@ const mapStateToProps = state => {
     boards: state.boards,
     lists: state.lists,
     tasks: state.tasks,
-    comments: state.comments
+    comments: state.comments,
+    counter: state.counter
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      increment
+    },
+    dispatch
+  );
+};
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(App);

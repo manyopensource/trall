@@ -29,6 +29,7 @@ $main_btn: #e40069;
     }
     &__bar {
         margin-top: 12px;
+        user-select: none;
     }
     &__btn {
         background: $main_btn;
@@ -40,12 +41,14 @@ $main_btn: #e40069;
         color: white;
         cursor: pointer;
         margin-left: 10px;
-        
         &:first-child {
             margin-left: 0;
         }
         &:hover {
-            background: darken($main_btn, 10%);
+            background: darken($main_btn, 6%);
+        }
+        &:active {
+            background: darken($main_btn, 12%);
         }
     }
 }
