@@ -14,7 +14,6 @@ class Card extends Component {
   };
 
   deleteCard = () => {
-    console.log('deleteCard');
     this.props.deleteTask(this.props.id);
   };
 
