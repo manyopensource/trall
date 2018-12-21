@@ -13,6 +13,22 @@ class EditCard extends Component {
     };
   }
 
+  componentWillMount() {
+    document.addEventListener('mouseup', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mouseup', this.handleClick, false);
+  }
+
+  handleClick = e => {
+    if (this.node.contains(e.target)) {
+      this.textarea.focus();
+      return false;
+    }
+    this.hideAddBlock();
+  }
+
   saveValue = event => {
     const value = event.target.value;
     this.setState({
@@ -20,10 +36,8 @@ class EditCard extends Component {
     });
   };
 
-  hideTextarea = event => {
-    this.setState({
-      showFullCard: true
-    });
+  hideAddBlock = () => {
+    this.props.changeAddBlock(false);
   };
 
   createTask = () => {
@@ -48,14 +62,13 @@ class EditCard extends Component {
 
   render = () => {
     return (
-      <div className="edit-card">
+      <div className="edit-card" ref={node => this.node = node}>
         <label className="edit-card__label" data-value={this.state.value}>
           <Textarea
             className="edit-card__text"
             placeholder="Add title to this card"
             inputRef={tag => (this.textarea = tag)}
             onChange={this.saveValue}
-            onBlur={this.hideTextarea}
             defaultValue={this.state.value}
             autoFocus
           />
