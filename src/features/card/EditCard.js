@@ -13,7 +13,7 @@ class EditCard extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     document.addEventListener('mouseup', this.handleClick, false);
   }
 
@@ -85,6 +85,7 @@ class EditCard extends Component {
 
 const mapStateToProps = state => {
   return {
+    global: state.global,
     counter: state.counter
   };
 };

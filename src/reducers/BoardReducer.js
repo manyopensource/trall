@@ -1,16 +1,15 @@
 import {
+  LOAD_INITIAL_DATA,
   CREATE_BOARD,
-  READ_BOARD,
   UPDATE_BOARD,
   DELETE_BOARD
 } from './../constants/ActionTypes';
-import data from './../data';
 
-const reducer = (state = data.boards, action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
+    case LOAD_INITIAL_DATA:
+      return action.payload.boards;
     case CREATE_BOARD:
-      return { ...state, boards: [...state.boards, action.payload] };
-    case READ_BOARD:
       return { ...state, boards: [...state.boards, action.payload] };
     case UPDATE_BOARD:
       return { ...state, boards: [...state.boards, action.payload] };

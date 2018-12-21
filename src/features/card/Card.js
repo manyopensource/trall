@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { deleteTask } from './../../actions';
+import { deleteTask, openTask } from './../../actions';
 import './Card.scss';
 
 class Card extends Component {
   openCard = () => {
     console.log('openCard');
+    this.props.openTask();
   };
 
   editCard = () => {
@@ -43,7 +44,8 @@ class Card extends Component {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      deleteTask
+      deleteTask,
+      openTask
     },
     dispatch
   );

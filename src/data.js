@@ -108,6 +108,10 @@ const defaultState = {
       text: "That's right"
     }
   ],
+  global: {
+    lastId: 9,
+    isOpenTask: false
+  },
   counter: 9
 };
 

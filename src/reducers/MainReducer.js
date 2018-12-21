@@ -4,6 +4,7 @@ import boards from './BoardReducer';
 import lists from './ListReducer';
 import tasks from './TaskReducer';
 import comments from './CommentReducer';
+import global from './GlobalReducer';
 import counter from './CounterReducer';
 
 export default combineReducers({
@@ -12,5 +13,6 @@ export default combineReducers({
   lists,
   tasks,
   comments,
+  global,
   counter
 });

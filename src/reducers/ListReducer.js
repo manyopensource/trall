@@ -1,16 +1,16 @@
 import {
+  LOAD_INITIAL_DATA,
   CREATE_LIST,
-  READ_LIST,
   UPDATE_LIST,
   DELETE_LIST
 } from './../constants/ActionTypes';
 import data from './../data';
 
-const reducer = (state = data.lists, action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
+    case LOAD_INITIAL_DATA:
+      return action.payload.lists;
     case CREATE_LIST:
-      return { ...state, lists: [...state.lists, action.payload] };
-    case READ_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
     case UPDATE_LIST:
       return { ...state, lists: [...state.lists, action.payload] };

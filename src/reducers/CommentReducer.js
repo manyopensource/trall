@@ -1,16 +1,15 @@
 import {
+  LOAD_INITIAL_DATA,
   CREATE_COMMENT,
-  READ_COMMENT,
   UPDATE_COMMENT,
   DELETE_COMMENT
 } from './../constants/ActionTypes';
-import data from './../data';
 
-const reducer = (state = data.comments, action) => {
+const reducer = (state = [], action) => {
   switch (action.type) {
+    case LOAD_INITIAL_DATA:
+      return action.payload.comments;
     case CREATE_COMMENT:
-      return { ...state, comments: [...state.comments, action.payload] };
-    case READ_COMMENT:
       return { ...state, comments: [...state.comments, action.payload] };
     case UPDATE_COMMENT:
       return { ...state, comments: [...state.comments, action.payload] };
