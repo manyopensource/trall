@@ -1,10 +1,11 @@
 import {
-  INCREMENT,
   LOAD_INITIAL_DATA,
+  INCREMENT,
   CREATE_TASK,
   UPDATE_TASK,
   DELETE_TASK,
-  OPEN_TASK
+  OPEN_CARD,
+  CLOSE_CARD
 } from '../constants/ActionTypes';
 
 export const initData = data => ({
@@ -31,6 +32,10 @@ export const deleteTask = id => ({
   payload: id
 });
 
-export const openTask = () => ({
-  type: OPEN_TASK
+export const openCard = () => ({
+  type: OPEN_CARD
+});
+
+export const closeCard = () => ({
+  type: CLOSE_CARD
 });

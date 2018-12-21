@@ -27,7 +27,7 @@ class App extends Component {
         <Header />
         <Board {...this.props} />
         <Footer />
-        {!this.props.global.isOpenTask && <FullCard id={this.props.id} />}
+        {this.props.global.isOpenTask && <FullCard tasks={this.props.tasks} />}
       </div>
     );
   }

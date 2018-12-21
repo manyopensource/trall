@@ -4,7 +4,8 @@ export const LOAD_INITIAL_DATA = 'LOAD_INITIAL_DATA';
 export const INCREMENT = 'INCREMENT';
 
 // FOR GLOBAL
-export const OPEN_TASK = 'OPEN_TASK';
+export const OPEN_CARD = 'OPEN_CARD';
+export const CLOSE_CARD = 'CLOSE_CARD';
 
 // FOR TASK
 export const CREATE_TASK = 'CREATE_TASK';
