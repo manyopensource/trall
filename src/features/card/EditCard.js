@@ -27,7 +27,7 @@ class EditCard extends Component {
       return false;
     }
     this.hideAddBlock();
-  }
+  };
 
   saveValue = event => {
     const value = event.target.value;
@@ -58,11 +58,11 @@ class EditCard extends Component {
     });
     this.textarea.value = '';
     this.textarea.focus();
-  }
+  };
 
   render = () => {
     return (
-      <div className="edit-card" ref={node => this.node = node}>
+      <div className="edit-card" ref={node => (this.node = node)}>
         <label className="edit-card__label" data-value={this.state.value}>
           <Textarea
             className="edit-card__text"
@@ -74,7 +74,9 @@ class EditCard extends Component {
           />
         </label>
         <div className="edit-card__bar">
-          <div className="edit-card__btn" onClick={this.createTask}>Add task</div>
+          <div className="edit-card__btn" onClick={this.createTask}>
+            Add task
+          </div>
         </div>
       </div>
     );
@@ -84,8 +86,8 @@ class EditCard extends Component {
 const mapStateToProps = state => {
   return {
     counter: state.counter
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(

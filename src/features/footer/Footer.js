@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './Footer.scss';
 
 class Footer extends Component {
-  render() {
+  render = () => {
     return <footer className="footer">2018 &copy; Trall</footer>;
   }
 }

@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { deleteTask } from './../../actions';
 import './Card.scss';
 
 class Card extends Component {
   openCard = () => {
     console.log('openCard');
-  }
+  };
 
   editCard = () => {
     console.log('editCard');
-  }
+  };
 
   deleteCard = () => {
     console.log('deleteCard');
-  }
+    this.props.deleteTask(this.props.id);
+  };
 
   render = () => {
     return (
@@ -22,28 +26,31 @@ class Card extends Component {
           {this.props.title}
         </div>
         <div className="card__btns">
-          <b
-            className="card__btn card__btn-open"
-            onClick={this.openCard}
-          >
+          <b className="card__btn card__btn-open" onClick={this.openCard}>
             open
           </b>
-          <b
-            className="card__btn card__btn-edit"
-            onClick={this.editCard}
-          >
+          <b className="card__btn card__btn-edit" onClick={this.editCard}>
             edit
           </b>
-          <b
-            className="card__btn card__btn-delete"
-            onClick={this.deleteCard}
-          >
+          <b className="card__btn card__btn-delete" onClick={this.deleteCard}>
             delete
           </b>
         </div>
       </div>
     );
-  }
+  };
 }
 
-export default Card;
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators(
+    {
+      deleteTask
+    },
+    dispatch
+  );
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Card);

@@ -15,7 +15,7 @@ const reducer = (state = data.tasks, action) => {
     case UPDATE_TASK:
       return { ...state, tasks: [...state.tasks, action.payload] };
     case DELETE_TASK:
-      return { ...state, tasks: [...state.tasks, action.payload] };
+      return state.filter(row => row.id !== action.payload);
     default:
       return state;
   }

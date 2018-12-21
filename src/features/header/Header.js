@@ -3,7 +3,7 @@ import logo from './../../trall.svg';
 import './Header.scss';
 
 class Header extends Component {
-  render() {
+  render = () => {
     return (
       <header className="header">
         <div className="header__leftside">

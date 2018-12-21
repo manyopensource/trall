@@ -25,7 +25,7 @@ class List extends Component {
     this.setState({
       isAddBlockShown: bool
     });
-  }
+  };
 
   render = () => {
     const cards = this.props.tasks.map((task, index) => {
@@ -39,7 +39,12 @@ class List extends Component {
           </div>
           <div className="list__cards">
             {cards}
-            {this.state.isAddBlockShown && <EditCard listId={this.props.id} changeAddBlock={this.handleChangeAddBlock} />}
+            {this.state.isAddBlockShown && (
+              <EditCard
+                listId={this.props.id}
+                changeAddBlock={this.handleChangeAddBlock}
+              />
+            )}
           </div>
           {!this.state.isAddBlockShown && (
             <div className="list__adding-new" onClick={this.addCard}>
