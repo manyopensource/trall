@@ -12,7 +12,12 @@ const reducer = (state = [], action) => {
     case CREATE_TASK:
       return state.concat([action.payload]);
     case UPDATE_TASK:
-      return { ...state, tasks: [...state.tasks, action.payload] };
+      return state.map(task => {
+        if (task.id === action.payload.id) {
+          return action.payload;
+        }
+        return task;
+      });
     case DELETE_TASK:
       return state.filter(row => row.id !== action.payload);
     default:

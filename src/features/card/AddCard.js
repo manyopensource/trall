@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import Textarea from 'react-textarea-autosize';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { updateTask } from '../../actions';
-// import './AddCard.scss';
+import { createTask } from '../../actions';
+import { getLastTaskId } from '../../selectors';
+import './AddCard.scss';
 
-class EditCard extends Component {
+class AddCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.title
+      value: ''
     };
   }
 
@@ -26,7 +27,7 @@ class EditCard extends Component {
       this.textarea.focus();
       return false;
     }
-    this.props.changeMode(false);
+    this.hideAddBlock();
   };
 
   saveValue = event => {
@@ -36,19 +37,27 @@ class EditCard extends Component {
     });
   };
 
-  updateTask = () => {
+  hideAddBlock = () => {
+    this.props.changeAddBlock(false);
+  };
+
+  createTask = () => {
     let title = this.state.value.trim();
     if (title === '') {
       this.textarea.focus();
       return false;
     }
-    this.props.updateTask({
-      id: this.props.id,
+    this.props.createTask({
+      id: this.props.lastTaskId + 1,
       listId: this.props.listId,
       title: title,
       description: ''
     });
-    this.props.changeMode(false);
+    this.setState({
+      value: ''
+    });
+    this.textarea.value = '';
+    this.textarea.focus();
   };
 
   render = () => {
@@ -65,8 +74,8 @@ class EditCard extends Component {
           />
         </label>
         <div className="edit-card__bar">
-          <div className="edit-card__btn" onClick={this.updateTask}>
-            Save
+          <div className="edit-card__btn" onClick={this.createTask}>
+            Add task
           </div>
         </div>
       </div>
@@ -74,22 +83,22 @@ class EditCard extends Component {
   };
 }
 
-/* const mapStateToProps = state => {
+const mapStateToProps = state => {
   return {
     lastTaskId: getLastTaskId(state)
   };
-}; */
+};
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      updateTask
+      createTask
     },
     dispatch
   );
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
-)(EditCard);
+)(AddCard);

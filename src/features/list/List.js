@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Card from './../card/Card';
-import EditCard from './../card/EditCard';
+import AddCard from '../card/AddCard';
 import './List.scss';
 
 class List extends Component {
@@ -10,7 +10,6 @@ class List extends Component {
       isAddBlockShown: false
     };
   }
-  
 
   editListName = () => {
     console.log('editListName');
@@ -30,7 +29,7 @@ class List extends Component {
 
   render = () => {
     const cards = this.props.tasks.map((task, index) => {
-      return <Card key={task.id} id={task.id} title={task.title} />;
+      return <Card key={task.id} listId={this.props.id} id={task.id} title={task.title} />;
     });
     return (
       <div className="list">
@@ -41,7 +40,7 @@ class List extends Component {
           <div className="list__cards">
             {cards}
             {this.state.isAddBlockShown && (
-              <EditCard
+              <AddCard
                 listId={this.props.id}
                 changeAddBlock={this.handleChangeAddBlock}
               />
