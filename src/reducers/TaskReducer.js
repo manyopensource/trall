@@ -4,7 +4,6 @@ import {
   UPDATE_TASK,
   DELETE_TASK
 } from './../constants/ActionTypes';
-import data from './../data';
 
 const reducer = (state = [], action) => {
   switch (action.type) {

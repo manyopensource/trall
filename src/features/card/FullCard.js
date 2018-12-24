@@ -11,14 +11,16 @@ class FullCard extends Component {
   };
 
   render = () => {
+    // console.log(this.props);
     return (
-      <div class="full-card full-card--active">
-        <div class="full-card__table">
-          <div class="full-card__row">
-            <div class="full-card__cell">
-              <div class="full-card__overlay" onClick={this.closeCard} />
-              <div class="full-card__inner">
-                <div class="full-card__body">
+      <div className="full-card full-card--active">
+        <div className="full-card__table">
+          <div className="full-card__row">
+            <div className="full-card__cell">
+              <div className="full-card__overlay" onClick={this.closeCard} />
+              <div className="full-card__inner">
+                <div className="full-card__body">
+                  <div className="full-card__title"></div>
                   Laborum cupidatat est magna aliquip consequat aliqua id et et
                   occaecat mollit aliquip. Pariatur qui elit eu ex culpa velit
                   adipisicing sit fugiat consequat esse. Ipsum nisi non

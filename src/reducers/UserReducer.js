@@ -4,7 +4,6 @@ import {
   UPDATE_USER,
   DELETE_USER
 } from './../constants/ActionTypes';
-import data from './../data';
 
 const reducer = (state = [], action) => {
   switch (action.type) {
