@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { initData, increment } from './actions';
+import { initData } from './actions';
 import Header from './features/header/Header';
 import Board from './features/board/Board';
 import Footer from './features/footer/Footer';
 import FullCard from './features/card/FullCard';
 import './App.scss';
-import {getUsers} from './selectors';
+import { getUsers } from './selectors';
 import data from './data';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-
-    this.props.increment();
-  }
-
   componentDidMount() {
     this.props.initData(data);
   }
@@ -30,7 +24,7 @@ class App extends Component {
         {this.props.global.isOpenTask && <FullCard tasks={this.props.tasks} />}
       </div>
     );
-  }
+  };
 }
 
 const mapStateToProps = state => {
@@ -48,8 +42,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
-      initData,
-      increment
+      initData
     },
     dispatch
   );

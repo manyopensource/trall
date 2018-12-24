@@ -11,7 +11,6 @@ class FullCard extends Component {
   };
 
   render = () => {
-    // console.log(this.props);
     return (
       <div className="full-card full-card--active">
         <div className="full-card__table">
@@ -20,7 +19,7 @@ class FullCard extends Component {
               <div className="full-card__overlay" onClick={this.closeCard} />
               <div className="full-card__inner">
                 <div className="full-card__body">
-                  <div className="full-card__title"></div>
+                  <div className="full-card__title" />
                   Laborum cupidatat est magna aliquip consequat aliqua id et et
                   occaecat mollit aliquip. Pariatur qui elit eu ex culpa velit
                   adipisicing sit fugiat consequat esse. Ipsum nisi non

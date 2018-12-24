@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import List from './../list/List';
+import List from './../list/ListContainer';
 import './Board.scss';
 
 class Board extends Component {
   render = () => {
-    const lists = this.props.lists.map((list, index) => {
-      return (
-        <List
-          key={list.id}
-          id={list.id}
-          name={list.name}
-          tasks={this.props.tasks.filter(row => row.listId === list.id)}
-        />
-      );
+    const lists = this.props.lists.map(list => {
+      return <List key={list.id} id={list.id} name={list.name} />;
     });
     return (
       <div className="board">
@@ -20,7 +13,7 @@ class Board extends Component {
         <div className="board__lists clrfx">{lists}</div>
       </div>
     );
-  }
+  };
 }
 
 export default Board;
