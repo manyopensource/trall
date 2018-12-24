@@ -29,7 +29,6 @@ class List extends Component {
   };
 
   render = () => {
-    // console.log('list');
     const cards = this.props.tasks.map((task, index) => {
       return <Card key={task.id} id={task.id} title={task.title} />;
     });

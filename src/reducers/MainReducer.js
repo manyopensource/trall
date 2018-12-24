@@ -5,7 +5,6 @@ import lists from './ListReducer';
 import tasks from './TaskReducer';
 import comments from './CommentReducer';
 import global from './GlobalReducer';
-import counter from './CounterReducer';
 
 export default combineReducers({
   users,
@@ -13,6 +12,5 @@ export default combineReducers({
   lists,
   tasks,
   comments,
-  global,
-  counter
+  global
 });

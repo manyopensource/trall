@@ -85,8 +85,6 @@ class EditCard extends Component {
 
 const mapStateToProps = state => {
   return {
-    global: state.global,
-    counter: state.counter,
     lastTaskId: getLastTaskId(state)
   };
 };

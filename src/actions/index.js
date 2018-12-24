@@ -1,6 +1,5 @@
 import {
   LOAD_INITIAL_DATA,
-  INCREMENT,
   CREATE_TASK,
   UPDATE_TASK,
   DELETE_TASK,
@@ -11,10 +10,6 @@ import {
 export const initData = data => ({
   type: LOAD_INITIAL_DATA,
   payload: data
-});
-
-export const increment = () => ({
-  type: INCREMENT
 });
 
 export const createTask = task => ({

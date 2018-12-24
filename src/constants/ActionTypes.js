@@ -1,8 +1,5 @@
 export const LOAD_INITIAL_DATA = 'LOAD_INITIAL_DATA';
 
-// FOR COUNTER
-export const INCREMENT = 'INCREMENT';
-
 // FOR GLOBAL
 export const OPEN_CARD = 'OPEN_CARD';
 export const CLOSE_CARD = 'CLOSE_CARD';
