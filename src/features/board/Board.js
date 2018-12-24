@@ -3,16 +3,6 @@ import List from './../list/List';
 import './Board.scss';
 
 class Board extends Component {
-  getTasksByListId = id => {
-    let tasks = [];
-    this.props.tasks.forEach(task => {
-      if (task.listId === id) {
-        tasks.push(task);
-      }
-    });
-    return tasks;
-  }
-
   render = () => {
     const lists = this.props.lists.map((list, index) => {
       return (
@@ -20,7 +10,7 @@ class Board extends Component {
           key={list.id}
           id={list.id}
           name={list.name}
-          tasks={this.getTasksByListId(list.id)}
+          tasks={this.props.tasks.filter(row => row.listId === list.id)}
         />
       );
     });
