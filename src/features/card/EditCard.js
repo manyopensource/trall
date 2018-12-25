@@ -14,15 +14,15 @@ class EditCard extends Component {
 
   componentDidMount() {
     document.addEventListener('mouseup', this.handleMouseUp, false);
-    document.addEventListener('keydown', this.handleKeyDown, false);
+    document.addEventListener('keypress', this.handleKeyPress, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener('mouseup', this.handleMouseUp, false);
-    document.removeEventListener('keydown', this.handleKeyDown, false);
+    document.removeEventListener('keypress', this.handleKeyPress, false);
   }
 
-  handleKeyDown = e => {
+  handleKeyPress = e => {
     const { key, shiftKey } = e;
     if (key === 'Enter' && !shiftKey) {
       this.updateTask();
