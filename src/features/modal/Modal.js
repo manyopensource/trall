@@ -7,10 +7,12 @@ import { closeCard } from './../../actions';
 class Modal extends Component {
   componentDidMount() {
     document.addEventListener('keyup', this.handleFunc, false);
+    document.body.style.overflow = 'hidden';
   }
 
   componentWillUnmount() {
     document.removeEventListener('keyup', this.handleFunc, false);
+    document.body.style.removeProperty('overflow');
   }
 
   handleFunc = event => {
