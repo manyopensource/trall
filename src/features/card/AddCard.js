@@ -79,9 +79,6 @@ class AddCard extends Component {
             inputRef={tag => (this.textarea = tag)}
             onChange={this.saveValue}
             value={this.state.value}
-            onResize={() => {
-              return false;
-            }}
             autoFocus
           />
         </label>

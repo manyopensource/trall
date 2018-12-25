@@ -14,12 +14,10 @@ class Card extends Component {
     }
   }
   openCard = () => {
-    console.log('openCard');
     this.props.openCard();
   };
 
   editCard = () => {
-    console.log('editCard');
     this.setState({
       isEditMode: true
     });

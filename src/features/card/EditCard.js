@@ -3,7 +3,6 @@ import Textarea from 'react-textarea-autosize';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { updateTask } from '../../actions';
-// import './AddCard.scss';
 
 class EditCard extends Component {
   constructor(props) {
@@ -70,7 +69,7 @@ class EditCard extends Component {
             placeholder="Add title to this card"
             inputRef={tag => (this.textarea = tag)}
             onChange={this.saveValue}
-            defaultValue={this.state.value}
+            value={this.state.value}
             autoFocus
           />
         </label>
@@ -83,12 +82,6 @@ class EditCard extends Component {
     );
   };
 }
-
-/* const mapStateToProps = state => {
-  return {
-    lastTaskId: getLastTaskId(state)
-  };
-}; */
 
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
