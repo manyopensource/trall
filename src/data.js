@@ -109,8 +109,6 @@ const defaultState = {
     }
   ],
   global: {
-    lastId: 9,
-    openedId: null,
     isOpenTask: false
   },
   counter: 9

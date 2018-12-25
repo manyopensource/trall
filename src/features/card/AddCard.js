@@ -15,14 +15,24 @@ class AddCard extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.handleClick, false);
+    document.addEventListener('mouseup', this.handleMouseUp, false);
+    document.addEventListener('keypress', this.handleKeyPress, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleClick, false);
+    document.removeEventListener('mouseup', this.handleMouseUp, false);
+    document.removeEventListener('keypress', this.handleKeyPress, false);
   }
 
-  handleClick = e => {
+  handleKeyPress = e => {
+    const { key, shiftKey } = e;
+    if (key === 'Enter' && !shiftKey) {
+      this.createTask();
+      e.preventDefault();
+    }
+  };
+
+  handleMouseUp = e => {
     if (this.node.contains(e.target)) {
       this.textarea.focus();
       return false;
@@ -56,7 +66,6 @@ class AddCard extends Component {
     this.setState({
       value: ''
     });
-    this.textarea.value = '';
     this.textarea.focus();
   };
 
@@ -69,7 +78,10 @@ class AddCard extends Component {
             placeholder="Add title to this card"
             inputRef={tag => (this.textarea = tag)}
             onChange={this.saveValue}
-            defaultValue={this.state.value}
+            value={this.state.value}
+            onResize={() => {
+              return false;
+            }}
             autoFocus
           />
         </label>

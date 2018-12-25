@@ -14,14 +14,24 @@ class EditCard extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.handleClick, false);
+    document.addEventListener('mouseup', this.handleMouseUp, false);
+    document.addEventListener('keydown', this.handleKeyDown, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleClick, false);
+    document.removeEventListener('mouseup', this.handleMouseUp, false);
+    document.removeEventListener('keydown', this.handleKeyDown, false);
   }
 
-  handleClick = e => {
+  handleKeyDown = e => {
+    const { key, shiftKey } = e;
+    if (key === 'Enter' && !shiftKey) {
+      this.updateTask();
+      e.preventDefault();
+    }
+  };
+
+  handleMouseUp = e => {
     if (this.node.contains(e.target)) {
       this.textarea.focus();
       return false;
