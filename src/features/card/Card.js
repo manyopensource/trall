@@ -44,7 +44,7 @@ class Card extends Component {
       <div className="card">
         <div className="card__text">
           <b className="card__id">#{this.props.id}</b>
-          {this.props.title}
+          <span className="card__title">{this.props.title}</span>
         </div>
         <div className="card__btns">
           <b className="card__btn card__btn-open" onClick={this.openCard}>
