@@ -5,6 +5,7 @@ import { initData } from './actions';
 import Header from './features/header/Header';
 import Board from './features/board/Board';
 import Footer from './features/footer/Footer';
+import Modal from './features/modal/Modal';
 import FullCard from './features/card/FullCard';
 import './App.scss';
 import { getUsers } from './selectors';
@@ -21,7 +22,7 @@ class App extends Component {
         <Header />
         <Board {...this.props} />
         <Footer />
-        {this.props.global.isOpenTask && <FullCard tasks={this.props.tasks} />}
+        {this.props.global.isOpenTask && <Modal><FullCard tasks={this.props.tasks} /></Modal>}
       </div>
     );
   };
