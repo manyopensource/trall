@@ -27,8 +27,9 @@ export const deleteTask = id => ({
   payload: id
 });
 
-export const openCard = () => ({
-  type: OPEN_CARD
+export const openCard = id => ({
+  type: OPEN_CARD,
+  payload: id
 });
 
 export const closeCard = () => ({

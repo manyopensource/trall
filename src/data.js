@@ -109,9 +109,9 @@ const defaultState = {
     }
   ],
   global: {
-    isOpenTask: false
-  },
-  counter: 9
+    openTaskId: null,
+    isOpenTask: null
+  }
 };
 
 let data = defaultState;

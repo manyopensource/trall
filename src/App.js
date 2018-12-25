@@ -22,7 +22,7 @@ class App extends Component {
         <Header />
         <Board {...this.props} />
         <Footer />
-        {this.props.global.isOpenTask && <Modal><FullCard tasks={this.props.tasks} /></Modal>}
+        {this.props.global.isOpenTask && <Modal><FullCard id={this.props.global.openTaskId} tasks={this.props.tasks} /></Modal>}
       </div>
     );
   };
@@ -35,8 +35,7 @@ const mapStateToProps = state => {
     lists: state.lists,
     tasks: state.tasks,
     comments: state.comments,
-    global: state.global,
-    counter: state.counter
+    global: state.global
   };
 };
 

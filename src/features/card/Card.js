@@ -14,7 +14,7 @@ class Card extends Component {
     }
   }
   openCard = () => {
-    this.props.openCard();
+    this.props.openCard(this.props.id);
   };
 
   editCard = () => {
