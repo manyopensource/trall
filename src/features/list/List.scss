@@ -1,23 +1,45 @@
+@import './../../variables.scss';
+$color: rgb(255, 244, 146);
 .list {
-    // float: left;
     width: 350px;
     display: inline-block;
     vertical-align: top;
     margin-top: 20px;
     &__inner {
         margin: 0 10px;
-        // padding: 12px;
-        background: rgb(255, 244, 146);
+        background: $color;
         border-radius: 6px;
         overflow: hidden;
     }
     &__header {
-        padding: 12px 24px;
-        // background: red;
-        cursor: pointer;
+        padding: 6px 12px;
+        position: relative;
     }
-    &__name {
+    &__shield {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        &--disabled {
+            display: none;
+        }
+    }
+    &__name-textarea {
+        resize: none;
+        border: none;
+        background: transparent;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 3px;
+        display: block;
         font-size: 15px;
+        padding: 6px 12px;
+        font-family: $fontFamily;
+        &:focus {
+            background: white;
+        }
     }
     &__cards {
     }

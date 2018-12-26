@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import List from './List';
 import { createGetTasksByListId } from '../../selectors';
+import { updateList } from '../../actions';
 
 const mapStateToProps = () => {
   const getTasksByListId = createGetTasksByListId();
@@ -11,4 +13,13 @@ const mapStateToProps = () => {
   };
 };
 
-export default connect(mapStateToProps)(List);
+const mapDispathToProps = dispatch => {
+  return bindActionCreators(
+    {
+      updateList
+    },
+    dispatch
+  );
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(List);

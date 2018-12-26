@@ -63,16 +63,14 @@ class EditCard extends Component {
   render = () => {
     return (
       <div className="edit-card" ref={node => (this.node = node)}>
-        <label className="edit-card__label">
-          <Textarea
-            className="edit-card__text"
-            placeholder="Add title to this card"
-            inputRef={tag => (this.textarea = tag)}
-            onChange={this.saveValue}
-            value={this.state.value}
-            autoFocus
-          />
-        </label>
+        <Textarea
+          className="edit-card__textarea"
+          placeholder="Add title to this card"
+          inputRef={tag => (this.textarea = tag)}
+          onChange={this.saveValue}
+          value={this.state.value}
+          autoFocus
+        />
         <div className="edit-card__bar">
           <div className="edit-card__btn" onClick={this.updateTask}>
             Save

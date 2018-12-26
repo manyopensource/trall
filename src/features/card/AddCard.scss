@@ -1,3 +1,4 @@
+@import './../../variables.scss';
 $main_btn: #e40069;
 
 .edit-card {
@@ -5,28 +6,24 @@ $main_btn: #e40069;
     &:first-child {
         margin-top: 0;
     }
-    &__label {
-        display: block;
-        cursor: text;
-        background: white;
-        border-radius: 6px;
-        padding: 12px;
-        box-shadow: 0 2px 6px rgba(51, 51, 51, 0.2);
-    }
-    &__text {
-        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    &__textarea {
+        font-family: $fontFamily;
+        box-sizing: border-box;
+        width: 100%;
         font-size: 14px;
-        // margin-bottom: 8px;
         color: #333;
         border: none;
         overflow: hidden;
         overflow-wrap: break-word;
         resize: none;
         height: 60px;
-        width: 100%;
         display: block;
         outline: none;
         line-height: 1.3em;
+        background: white;
+        border-radius: 6px;
+        padding: 12px;
+        box-shadow: 0 2px 6px rgba(51, 51, 51, 0.2);
     }
     &__bar {
         margin-top: 12px;

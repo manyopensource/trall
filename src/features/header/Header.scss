@@ -1,10 +1,10 @@
-$colorpoint1: #e40069;
+@import './../../variables.scss';
 $colorpoint2: white;
 
 $paddingValue: 20px;
 
 .header {
-    background-color: $colorpoint1;
+    background-color: $mainColor;
     color: $colorpoint2;
     padding: $paddingValue;
     &__leftside {

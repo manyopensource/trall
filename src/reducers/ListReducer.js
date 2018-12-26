@@ -12,7 +12,12 @@ const reducer = (state = [], action) => {
     case CREATE_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
     case UPDATE_LIST:
-      return { ...state, lists: [...state.lists, action.payload] };
+      return state.map(list => {
+        if (list.id === action.payload.id) {
+          return action.payload;
+        }
+        return list;
+      });
     case DELETE_LIST:
       return { ...state, lists: [...state.lists, action.payload] };
     default:
