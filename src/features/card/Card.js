@@ -40,7 +40,7 @@ class Card extends Component {
 
   renderCard = () => {
     return (
-      <div className="card">
+      <div className="card" onDoubleClick={this.editCard}>
         <div className="card__text">
           <b className="card__id">#{this.props.id}</b>
           <span className="card__title">{this.props.title}</span>
