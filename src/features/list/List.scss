@@ -18,23 +18,15 @@
     }
     &__name {
         font-size: 15px;
-        transition: all 0.2s ease;
-        // padding: 
-        &:hover {
-            background: rgba(0, 0, 0, 0.2);
-        }
     }
     &__cards {
-        // margin-top: ;
     }
     &__adding-new {
         font-size: 14px;
         color: rgb(105, 98, 0);
         background: rgba(0, 0, 0, 0.2);
         padding: 12px 24px;
-        // margin-top: 12px;
         user-select: none;
-        // transition: all 0.2s ease;
         cursor: pointer;
         &:hover {
             background: rgba(0, 0, 0, 0.3);

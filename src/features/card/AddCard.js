@@ -37,6 +37,7 @@ class AddCard extends Component {
       this.textarea.focus();
       return false;
     }
+    this.createTask();
     this.hideAddBlock();
   };
 

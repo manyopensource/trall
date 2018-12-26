@@ -20,7 +20,8 @@ $shadow: rgba($border, 0.8);
     }
     &__new-comment-textarea {
         display: block;
-        width: 395px;
+        max-width: 395px;
+        width: 100%;
         border: 1px solid $border;
         resize: none;
         border-radius: 6px;
