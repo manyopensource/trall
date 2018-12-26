@@ -25,13 +25,12 @@ class List extends Component {
   }
 
   handleMouseUp = e => {
-    if (this.node.contains(e.target)) {
-      this.textarea.focus();
-      return false;
+    if (!this.node.contains(e.target) && !this.state.isShielded) {
+      this.setState({
+        isShielded: true
+      });
+      // this.textarea.blur();
     }
-    this.setState({
-      isShielded: true
-    });
   };
 
   handleKeyPress = e => {
@@ -52,7 +51,6 @@ class List extends Component {
     this.setState({
       isAddBlockShown: bool
     });
-    this.textarea.focus();
   };
 
   saveValue = event => {
@@ -77,12 +75,16 @@ class List extends Component {
       isShielded: true
     });
     this.textarea.blur();
-  }
+  };
 
   handleClickOnShield = () => {
     this.setState({
       isShielded: false
     });
+    setTimeout(() => {
+      this.textarea.focus();
+      this.textarea.select();
+    }, 0);
   };
 
   render = () => {
@@ -108,12 +110,27 @@ class List extends Component {
               }
               onClick={this.handleClickOnShield}
             />
+            <div
+              className={
+                !this.state.isShielded
+                  ? 'list__name-textarea list__name-textarea--hidden'
+                  : 'list__name-textarea'
+              }
+              ref={listname => (this.listname = listname)}
+            >
+              {this.props.name}
+            </div>
             <Textarea
+              className={
+                this.state.isShielded
+                  ? 'list__name-textarea list__name-textarea--hidden'
+                  : 'list__name-textarea'
+              }
               inputRef={tag => (this.textarea = tag)}
-              className="list__name-textarea"
               defaultValue={this.props.name}
               onChange={this.saveValue}
               spellCheck={false}
+              value={this.state.value}
             />
           </div>
           <div className="list__cards">
