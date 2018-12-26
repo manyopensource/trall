@@ -7,6 +7,7 @@ import './FullCard.scss';
 
 class FullCard extends Component {
   render = () => {
+    if (!this.props.isShown) return null;
     let comments = this.props.comments.map((comment, index) => {
       return <Comment key={index} {...comment} />;
     });

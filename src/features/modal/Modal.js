@@ -7,12 +7,10 @@ import { closeCard } from './../../actions';
 class Modal extends Component {
   componentDidMount() {
     document.addEventListener('keyup', this.handleFunc, false);
-    document.body.style.overflow = 'hidden';
   }
 
   componentWillUnmount() {
     document.removeEventListener('keyup', this.handleFunc, false);
-    document.body.style.removeProperty('overflow');
   }
 
   handleFunc = event => {
@@ -23,13 +21,19 @@ class Modal extends Component {
   };
 
   closeCard = () => {
-    this.props.closeCard();
+    this.modal.className = 'modal';
+    setTimeout(() => {
+      this.props.closeCard();
+      document.body.style.removeProperty('overflow');
+    }, 333);
   };
 
   render = () => {
-    if (!this.props.isOpen) return null;
     return (
-      <div className="modal modal--active">
+      <div
+        className={this.props.isOpen ? 'modal modal--active' : 'modal'}
+        ref={modal => (this.modal = modal)}
+      >
         <div className="modal__table">
           <div className="modal__row">
             <div className="modal__cell">

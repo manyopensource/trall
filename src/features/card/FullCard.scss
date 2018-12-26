@@ -8,6 +8,7 @@ $shadow: rgba($border, 0.8);
     color: #002d44;
     &__title {
         font-size: 18px;
+        white-space: pre-wrap;
     }
     &__comments-block {
         margin-top: 20px;

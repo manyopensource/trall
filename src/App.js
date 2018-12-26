@@ -14,7 +14,6 @@ import data from './data';
 class App extends Component {
   componentDidMount() {
     this.props.initData(data);
-    document.body.style.removeProperty('overflow');
   }
 
   render = () => {
@@ -24,7 +23,7 @@ class App extends Component {
         <Board {...this.props} />
         <Footer />
         <Modal isOpen={this.props.global.openTaskId}>
-          <FullCard />
+          <FullCard isShown={this.props.global.openTaskId} />
         </Modal>
       </div>
     );

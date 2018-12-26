@@ -103,13 +103,13 @@ const defaultState = {
   comments: [
     {
       id: 1,
-      taskId: 5,
+      taskId: 1,
       userId: 1,
       text: "That's right"
     },
     {
       id: 1,
-      taskId: 5,
+      taskId: 1,
       userId: 1,
       text: "Some people does!"
     }

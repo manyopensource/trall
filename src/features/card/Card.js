@@ -16,6 +16,7 @@ class Card extends Component {
   
   openCard = () => {
     this.props.openCard(this.props.id);
+    document.body.style.overflow = 'hidden';
   };
 
   editCard = () => {
