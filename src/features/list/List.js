@@ -29,13 +29,22 @@ class List extends Component {
 
   render = () => {
     const cards = this.props.tasks.map((task, index) => {
-      return <Card key={task.id} listId={this.props.id} id={task.id} title={task.title} />;
+      return (
+        <Card
+          key={task.id}
+          listId={this.props.id}
+          id={task.id}
+          title={task.title}
+        />
+      );
     });
     return (
       <div className="list">
         <div className="list__inner">
-          <div className="list__name" onDoubleClick={this.editListName}>
-            {this.props.name}
+          <div className="list__header" onClick={this.editListName}>
+            <div className="list__name">
+              {this.props.name}
+            </div>
           </div>
           <div className="list__cards">
             {cards}

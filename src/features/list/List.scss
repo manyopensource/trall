@@ -6,9 +6,15 @@
     margin-top: 20px;
     &__inner {
         margin: 0 10px;
-        padding: 12px;
+        // padding: 12px;
         background: rgb(255, 244, 146);
         border-radius: 6px;
+        overflow: hidden;
+    }
+    &__header {
+        padding: 12px;
+        // background: red;
+        cursor: pointer;
     }
     &__name {
         font-size: 16px;
@@ -23,11 +29,15 @@
     }
     &__adding-new {
         font-size: 14px;
-        color: gray;
-        background: white;
-        padding: 8px 12px;
-        border-radius: 6px;
-        margin-top: 12px;
+        color: white;
+        background: rgba(0, 0, 0, 0.2);
+        padding: 12px 24px;
+        // margin-top: 12px;
         user-select: none;
+        transition: background 0.2s ease;
+        cursor: pointer;
+        &:hover {
+            background: rgba(0, 0, 0, 0.4);
+        }
     }
 }

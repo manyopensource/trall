@@ -1,9 +1,9 @@
 $main_btn: #e40069;
 
 .edit-card {
-    margin-top: 12px;
+    margin: 12px;
     &:first-child {
-        // margin-top: 0;
+        margin-top: 0;
     }
     &__label {
         display: block;
@@ -26,6 +26,7 @@ $main_btn: #e40069;
         width: 100%;
         display: block;
         outline: none;
+        line-height: 1.3em;
     }
     &__bar {
         margin-top: 12px;
