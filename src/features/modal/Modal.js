@@ -27,6 +27,7 @@ class Modal extends Component {
   };
 
   render = () => {
+    if (!this.props.isOpen) return null;
     return (
       <div className="modal modal--active">
         <div className="modal__table">

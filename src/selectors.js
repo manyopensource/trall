@@ -1,8 +1,9 @@
 import { createSelector } from 'reselect';
 
-const tasksSelector = state => state.tasks;
-const getTaskIdSelector = (state, id) => id;
 const getListIdSelector = (state, id) => id;
+const tasksSelector = state => state.tasks;
+const commentsSelector = state => state.comments;
+const openTaskIdSelector = state => state.global.openTaskId;
 
 export const createGetTasksByListId = () => {
   return createSelector(
@@ -26,9 +27,5 @@ export const getLastTaskId = state => {
   return maxId;
 };
 
-export const getTaskById = state => {
-  return createSelector(
-    getTaskIdSelector,
-    id => state.tasks.filter(task => task.id === id)
-  )
-};
+export const getTaskById = createSelector(tasksSelector, openTaskIdSelector, (tasks, id) => tasks.find(task => task.id === id));
+export const getCommentsByTaskId = createSelector(commentsSelector, openTaskIdSelector, (comments, id) => comments.filter(comment => comment.taskId === id));

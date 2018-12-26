@@ -13,6 +13,7 @@ class Card extends Component {
       isEditMode: false,
     }
   }
+  
   openCard = () => {
     this.props.openCard(this.props.id);
   };

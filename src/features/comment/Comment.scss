@@ -1,0 +1,13 @@
+$border: rgb(240, 238, 109);
+.comment {
+    $this: &;
+    font-size: 14px;
+    border-bottom: 1px solid $border;
+    padding: 12px 0;
+    &__user {
+
+    }
+    &__text {
+
+    }
+}

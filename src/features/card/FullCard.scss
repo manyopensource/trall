@@ -1,0 +1,49 @@
+$bg: rgba(236, 247, 82, 0.2);
+$border: rgb(240, 238, 109);
+$shadow: rgba($border, 0.8);
+.full-card {
+    $this: &;
+    padding: 22px;
+    background: $bg;
+    color: #002d44;
+    &__title {
+        font-size: 18px;
+    }
+    &__comments-block {
+        margin-top: 20px;
+    }
+    &__comments-block-title {
+        font-size: 18px;
+    }
+    &__comment-adding-block {
+        margin-top: 10px;
+    }
+    &__new-comment-textarea {
+        display: block;
+        width: 395px;
+        border: 1px solid $border;
+        resize: none;
+        border-radius: 6px;
+        outline: none;
+        padding: 12px;
+        font-size: 14px;
+        transition: box-shadow 0.2s ease;
+        &:focus {
+            box-shadow: 0 2px 4px $shadow;
+        }
+    }
+    &__add-comment-button {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 12px;
+        background: white;
+        font-size: 14px;
+        padding: 8px 12px;
+        border-radius: 3px;
+        cursor: pointer;
+        user-select: none;
+    }
+    &__comments {
+        margin-top: 20px;
+    }
+}

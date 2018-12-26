@@ -6,7 +6,8 @@ const Store = createStore(mainReducer, devToolsEnhancer());
 
 Store.subscribe(() => {
   if (typeof Storage !== 'undefined') {
-    window.localStorage.setItem('localState', JSON.stringify(Store.getState()));
+    const { global, ...state} = Store.getState();
+    window.localStorage.setItem('localState', JSON.stringify(state));
   }
 });
 

@@ -103,15 +103,17 @@ const defaultState = {
   comments: [
     {
       id: 1,
-      cardId: 5,
+      taskId: 5,
       userId: 1,
       text: "That's right"
+    },
+    {
+      id: 1,
+      taskId: 5,
+      userId: 1,
+      text: "Some people does!"
     }
-  ],
-  global: {
-    openTaskId: null,
-    isOpenTask: null
-  }
+  ]
 };
 
 let data = defaultState;

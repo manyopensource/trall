@@ -1,12 +1,11 @@
 import { OPEN_CARD, CLOSE_CARD } from './../constants/ActionTypes';
-import data from './../data';
 
-const reducer = (state = data.global, action) => {
+const reducer = (state = {}, action) => {
   switch (action.type) {
     case OPEN_CARD:
-      return { ...state, openTaskId: action.payload, isOpenTask: true };
+      return { ...state, openTaskId: action.payload };
     case CLOSE_CARD:
-      return { ...state, isOpenTask: false };
+      return { ...state, openTaskId: null };
     default:
       return state;
   }
