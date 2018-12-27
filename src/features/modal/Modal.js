@@ -21,6 +21,9 @@ class Modal extends Component {
   };
 
   closeCard = () => {
+    if (this.props.closeDisabled && this.props.closeDisabled === true) {
+      return false;
+    }
     this.modal.className = 'modal';
     setTimeout(() => {
       this.props.closeCard();

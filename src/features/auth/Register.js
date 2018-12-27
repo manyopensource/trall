@@ -18,22 +18,21 @@ class Register extends Component {
   };
 
   handleSignUp = () => {
-    setTimeout(() => {
-      this.props.changeAuthState(true);
-      document.body.style.removeProperty('overflow');
-      document.body.style.removeProperty('padding-right');
-    }, 333);
-  }
+    this.props.changeAuthState(true);
+    document.body.style.removeProperty('overflow');
+    document.body.style.removeProperty('padding-right');
+  };
 
   render = () => {
     return (
       <div className="register">
         <div className="register__title">Registration</div>
-        <input type="text" onChange={this.handleSaveValue} placeholder="Type your name" />
-          <div onClick={this.handleSignUp}>Sign up</div>
-        <form action="#" method="post" className="register__form">
-          
-        </form>
+        <input
+          type="text"
+          onChange={this.handleSaveValue}
+          placeholder="Type your name"
+        />
+        <div onClick={this.handleSignUp}>Sign up</div>
       </div>
     );
   };
