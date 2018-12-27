@@ -14,12 +14,28 @@ class FullCard extends Component {
   }
 
   componentDidMount() {
-    console.log('comment mounted');
+    document.body.addEventListener(
+      'keydown',
+      this.handleDocumentKeyPress,
+      false
+    );
   }
 
   componentWillUnmount() {
-    console.log('comment unmounted');
+    document.body.removeEventListener(
+      'keydown',
+      this.handleDocumentKeyPress,
+      false
+    );
   }
+
+  handleDocumentKeyPress = e => {
+    const { key, ctrlKey, metaKey } = e;
+    if ((ctrlKey || metaKey) && key === 'Enter') {
+      this.handleClick();
+      e.preventDefault();
+    }
+  };
 
   handleSaveValue = event => {
     const value = event.target.value;
@@ -47,7 +63,6 @@ class FullCard extends Component {
   };
 
   render = () => {
-    if (!this.props.isShown) return null;
     let comments = this.props.comments.map((comment, index) => {
       const user = this.props.users.find(user => user.id === comment.userId);
       return <Comment key={index} {...comment} user={user} />;
@@ -67,7 +82,6 @@ class FullCard extends Component {
               className="full-card__new-comment-textarea"
               placeholder="Leave a comment..."
               onChange={this.handleSaveValue}
-              defaultValue=""
               value={this.state.textvalue}
             />
             <span

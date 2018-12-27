@@ -13,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       nativeScrollbarWidth: null,
-      loggedUser: null
+      isUserLogged: false
     }
   }
   componentDidMount() {
@@ -38,6 +38,12 @@ class App extends Component {
     );
   }
 
+  handleChangeAuthState = bool => {
+    this.setState({
+      isUserLogged: bool
+    });
+  }
+
   render = () => {
     return (
       <div className="global-space">
@@ -45,8 +51,10 @@ class App extends Component {
         <Board {...this.props} {...this.state} />
         <Footer />
         <Modal isOpen={this.props.global.openTaskId}>
-          <FullCard isShown={this.props.global.openTaskId} />
-          <Register isShown={this.state.loggedUser} />
+          <FullCard />
+        </Modal>
+        <Modal closeDisabled={!this.state.isUserLogged} isOpen={!this.state.isUserLogged}>
+          <Register changeAuthState={this.handleChangeAuthState} />
         </Modal>
       </div>
     );

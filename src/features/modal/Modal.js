@@ -40,7 +40,7 @@ class Modal extends Component {
             <div className="modal__cell">
               <div className="modal__overlay" onClick={this.closeCard} />
               <div className="modal__inner">
-                <div className="modal__body">{this.props.children}</div>
+                <div className="modal__body">{this.props.isOpen ? this.props.children : null}</div>
               </div>
             </div>
           </div>
