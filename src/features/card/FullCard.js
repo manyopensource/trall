@@ -20,7 +20,11 @@ class FullCard extends Component {
         <div className="full-card__comments-block">
           <div className="full-card__comments-block-title">Комментарии</div>
           <div className="full-card__comment-adding-block">
-            <Textarea minRows={3} className="full-card__new-comment-textarea" />
+            <Textarea
+              minRows={3}
+              className="full-card__new-comment-textarea"
+              placeholder="Leave a comment..."
+            />
             <span className="full-card__add-comment-button">Add Comment</span>
           </div>
           <div className="full-card__comments">{comments}</div>

@@ -25,6 +25,7 @@ class Modal extends Component {
     setTimeout(() => {
       this.props.closeCard();
       document.body.style.removeProperty('overflow');
+      document.body.style.removeProperty('padding-right');
     }, 333);
   };
 

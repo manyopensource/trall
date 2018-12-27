@@ -13,12 +13,12 @@ class EditCard extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.handleMouseUp, false);
+    document.addEventListener('mousedown', this.handleMouseDown, false);
     document.addEventListener('keypress', this.handleKeyPress, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleMouseUp, false);
+    document.removeEventListener('mousedown', this.handleMouseDown, false);
     document.removeEventListener('keypress', this.handleKeyPress, false);
   }
 
@@ -30,7 +30,7 @@ class EditCard extends Component {
     }
   };
 
-  handleMouseUp = e => {
+  handleMouseDown = e => {
     if (this.node.contains(e.target)) {
       this.textarea.focus();
       return false;

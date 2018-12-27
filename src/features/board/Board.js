@@ -5,7 +5,7 @@ import './Board.scss';
 class Board extends Component {
   render = () => {
     const lists = this.props.lists.map(list => {
-      return <List key={list.id} id={list.id} name={list.name} />;
+      return <List {...this.props} key={list.id} id={list.id} name={list.name}  />;
     });
     return (
       <div className="board">

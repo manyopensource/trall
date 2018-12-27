@@ -16,7 +16,13 @@ class Card extends Component {
   
   openCard = () => {
     this.props.openCard(this.props.id);
-    document.body.style.overflow = 'hidden';
+    const isScroll = document.body.clientHeight > document.documentElement.clientHeight;
+    if (isScroll) {
+      document.body.style.overflow = 'hidden';
+      if (this.props.nativeScrollbarWidth) {
+        document.body.style.paddingRight = this.props.nativeScrollbarWidth + 'px';
+      }
+    }
   };
 
   editCard = () => {

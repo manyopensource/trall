@@ -12,15 +12,39 @@ import { getUsers } from './selectors';
 import data from './data';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      nativeScrollbarWidth: null
+    }
+  }
   componentDidMount() {
     this.props.initData(data);
+
+    var scrollbarElement = document.createElement('div');
+    scrollbarElement.style.position = 'absolute';
+    scrollbarElement.style.visibility = 'hidden';
+    scrollbarElement.style.width = '100px';
+    scrollbarElement.style.height = '100px';
+    scrollbarElement.style.overflow = 'scroll';
+    document.body.appendChild(scrollbarElement);
+
+    this.setState(
+      {
+        nativeScrollbarWidth:
+          scrollbarElement.offsetWidth - scrollbarElement.clientWidth
+      },
+      () => {
+        document.body.removeChild(scrollbarElement);
+      }
+    );
   }
 
   render = () => {
     return (
       <div className="global-space">
         <Header />
-        <Board {...this.props} />
+        <Board {...this.props} {...this.state} />
         <Footer />
         <Modal isOpen={this.props.global.openTaskId}>
           <FullCard isShown={this.props.global.openTaskId} />

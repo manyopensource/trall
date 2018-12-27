@@ -91,6 +91,7 @@ class List extends Component {
     const cards = this.props.tasks.map(task => {
       return (
         <Card
+          {...this.props}
           key={task.id}
           listId={this.props.id}
           id={task.id}
@@ -131,6 +132,7 @@ class List extends Component {
               onChange={this.saveValue}
               spellCheck={false}
               value={this.state.value}
+              placeholder="Enter list name..."
             />
           </div>
           <div className="list__cards">
