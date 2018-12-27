@@ -6,7 +6,7 @@ import Header from './features/header/Header';
 import Board from './features/board/Board';
 import Footer from './features/footer/Footer';
 import Modal from './features/modal/Modal';
-import FullCard from './features/card/FullCard';
+import FullCard from './features/card/FullCardContainer';
 import './App.scss';
 import { getUsers } from './selectors';
 import data from './data';
@@ -15,7 +15,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nativeScrollbarWidth: null
+      nativeScrollbarWidth: null,
+      userInfo: null
     }
   }
   componentDidMount() {

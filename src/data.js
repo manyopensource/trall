@@ -108,7 +108,7 @@ const defaultState = {
       text: "That's right"
     },
     {
-      id: 1,
+      id: 2,
       taskId: 1,
       userId: 1,
       text: "Some people does!"

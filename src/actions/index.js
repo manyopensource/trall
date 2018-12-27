@@ -5,7 +5,8 @@ import {
   DELETE_TASK,
   OPEN_CARD,
   CLOSE_CARD,
-  UPDATE_LIST
+  UPDATE_LIST,
+  CREATE_COMMENT
 } from '../constants/ActionTypes';
 
 export const initData = data => ({
@@ -40,4 +41,9 @@ export const closeCard = () => ({
 export const updateList = list => ({
   type: UPDATE_LIST,
   payload: list
+});
+
+export const createComment = comment => ({
+  type: CREATE_COMMENT,
+  payload: comment
 });
