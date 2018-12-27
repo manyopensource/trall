@@ -26,10 +26,7 @@ class List extends Component {
 
   handleMouseUp = e => {
     if (!this.node.contains(e.target) && !this.state.isShielded) {
-      this.setState({
-        isShielded: true
-      });
-      // this.textarea.blur();
+      this.updateList();
     }
   };
 
@@ -71,10 +68,10 @@ class List extends Component {
       boardId: 1,
       name: name
     });
+    this.textarea.blur();
     this.setState({
       isShielded: true
     });
-    this.textarea.blur();
   };
 
   handleClickOnShield = () => {
@@ -128,7 +125,6 @@ class List extends Component {
                   : 'list__name-textarea'
               }
               inputRef={tag => (this.textarea = tag)}
-              defaultValue={this.props.name}
               onChange={this.saveValue}
               spellCheck={false}
               value={this.state.value}

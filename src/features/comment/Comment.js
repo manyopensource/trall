@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import './Comment.scss';
 
 class Comment extends Component {
-  closeCard = () => {
-    this.props.closeCard();
-  };
-
   render = () => {
     const uri = '/user/' + 'nightfury';
     return (
