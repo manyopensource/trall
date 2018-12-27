@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Card from './../card/Card';
-import AddCard from '../card/AddCard';
+import PropTypes from 'prop-types';
+import Card from './../card/CardContainer';
+import AddCard from '../card/AddCardContainer';
 import Textarea from 'react-textarea-autosize';
 import './List.scss';
 
@@ -153,6 +154,11 @@ class List extends Component {
       </div>
     );
   };
+}
+
+List.propTypes = {
+  tasks: PropTypes.array.isRequired,
+  name: PropTypes.string.isRequired
 }
 
 export default List;

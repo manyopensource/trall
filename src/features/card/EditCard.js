@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Textarea from 'react-textarea-autosize';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { updateTask } from '../../actions';
 
 class EditCard extends Component {
   constructor(props) {
@@ -81,16 +79,11 @@ class EditCard extends Component {
   };
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      updateTask
-    },
-    dispatch
-  );
-};
+EditCard.propTypes = {
+  id: PropTypes.number.isRequired,
+  listId: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  changeMode: PropTypes.func.isRequired
+}
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(EditCard);
+export default EditCard;

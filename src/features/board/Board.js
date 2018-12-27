@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import List from './../list/ListContainer';
 import './Board.scss';
 
@@ -14,6 +15,10 @@ class Board extends Component {
       </div>
     );
   };
+}
+
+Board.propTypes = {
+  lists: PropTypes.array.isRequired
 }
 
 export default Board;

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { deleteTask, openCard } from './../../actions';
+import PropTypes from 'prop-types';
+import EditCard from './EditCardContainer';
 import './Card.scss';
-import EditCard from './EditCard';
 
 class Card extends Component {
   constructor(props) {
@@ -75,17 +73,10 @@ class Card extends Component {
   };
 }
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      deleteTask,
-      openCard
-    },
-    dispatch
-  );
-};
+Card.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  nativeScrollbarWidth: PropTypes.number
+}
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Card);
+export default Card;

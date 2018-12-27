@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Textarea from 'react-textarea-autosize';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { createTask } from '../../actions';
-import { getLastTaskId } from '../../selectors';
 import './AddCard.scss';
 
 class AddCard extends Component {
@@ -91,22 +88,9 @@ class AddCard extends Component {
   };
 }
 
-const mapStateToProps = state => {
-  return {
-    lastTaskId: getLastTaskId(state)
-  };
-};
+AddCard.propTypes = {
+  lastTaskId: PropTypes.number,
+  listId: PropTypes.number.isRequired
+}
 
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      createTask
-    },
-    dispatch
-  );
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(AddCard);
+export default AddCard;

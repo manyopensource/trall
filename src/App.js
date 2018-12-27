@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { initData } from './actions';
 import Header from './features/header/Header';
 import Board from './features/board/Board';
 import Footer from './features/footer/Footer';
 import Modal from './features/modal/Modal';
 import FullCard from './features/card/FullCardContainer';
+import Register from './features/auth/Register';
 import './App.scss';
-import { getUsers } from './selectors';
 import data from './data';
 
 class App extends Component {
@@ -16,7 +13,7 @@ class App extends Component {
     super(props);
     this.state = {
       nativeScrollbarWidth: null,
-      userInfo: null
+      loggedUser: null
     }
   }
   componentDidMount() {
@@ -49,33 +46,11 @@ class App extends Component {
         <Footer />
         <Modal isOpen={this.props.global.openTaskId}>
           <FullCard isShown={this.props.global.openTaskId} />
+          <Register isShown={this.state.loggedUser} />
         </Modal>
       </div>
     );
   };
 }
 
-const mapStateToProps = state => {
-  return {
-    users: getUsers(state),
-    boards: state.boards,
-    lists: state.lists,
-    tasks: state.tasks,
-    comments: state.comments,
-    global: state.global
-  };
-};
-
-const mapDispatchToProps = dispatch => {
-  return bindActionCreators(
-    {
-      initData
-    },
-    dispatch
-  );
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App;
