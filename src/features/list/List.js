@@ -15,18 +15,20 @@ class List extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener('mouseup', this.handleMouseUp, false);
+    document.addEventListener('click', this.handleDocumentClick, false);
     document.addEventListener('keypress', this.handleKeyPress, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mouseup', this.handleMouseUp, false);
+    document.removeEventListener('click', this.handleDocumentClick, false);
     document.removeEventListener('keypress', this.handleKeyPress, false);
   }
 
-  handleMouseUp = e => {
+  handleDocumentClick = e => {
     if (!this.node.contains(e.target) && !this.state.isShielded) {
       this.updateList();
+    } else {
+      this.textarea.focus();
     }
   };
 
@@ -60,8 +62,10 @@ class List extends Component {
   updateList = () => {
     let name = this.state.value.trim();
     if (name === '') {
-      this.textarea.focus();
-      return false;
+      name = this.props.name;
+      this.setState({
+        value: name
+      });
     }
     this.props.updateList({
       id: this.props.id,

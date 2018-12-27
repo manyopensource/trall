@@ -11,7 +11,7 @@ class FullCard extends Component {
 
     this.state = {
       textvalue: ''
-    }
+    };
   }
 
   componentDidMount() {
@@ -27,12 +27,13 @@ class FullCard extends Component {
     this.setState({
       textvalue: value
     });
-  }
+  };
 
   render = () => {
     if (!this.props.isShown) return null;
     let comments = this.props.comments.map((comment, index) => {
-      return <Comment key={index} {...comment} />;
+      const user = this.props.users.find(user => user.id === comment.userId);
+      return <Comment key={index} {...comment} user={user} />;
     });
     return (
       <div className="full-card">
@@ -47,7 +48,7 @@ class FullCard extends Component {
               minRows={3}
               className="full-card__new-comment-textarea"
               placeholder="Leave a comment..."
-              onChnage={this.handleSaveValue}
+              onChange={this.handleSaveValue}
               defaultValue=""
             />
             <span className="full-card__add-comment-button">Add Comment</span>
@@ -62,7 +63,8 @@ class FullCard extends Component {
 const mapStateToProps = state => {
   return {
     task: getTaskById(state),
-    comments: getCommentsByTaskId(state)
+    comments: getCommentsByTaskId(state),
+    users: state.users
   };
 };
 
