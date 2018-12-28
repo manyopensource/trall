@@ -53,7 +53,6 @@ class Register extends Component {
   };
 
   render = () => {
-    console.log('userId' + this.props.lastUserId)
     return (
       <div className="auth">
         <div className="auth__title">Registration</div>

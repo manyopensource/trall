@@ -66,7 +66,7 @@ class App extends Component {
 
 App.propTypes = {
   initData: PropTypes.func.isRequired,
-  global: PropTypes.number
+  global: PropTypes.object
 }
 
 export default App;
