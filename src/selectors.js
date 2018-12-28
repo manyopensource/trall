@@ -37,5 +37,15 @@ export const getLastCommentId = state => {
   return maxId;
 };
 
+export const getLastUserId = state => {
+  let maxId = 0;
+  state.users.forEach(user => {
+    if (user.id > maxId) {
+      maxId = user.id;
+    }
+  });
+  return maxId;
+};
+
 export const getTaskById = createSelector(tasksSelector, openTaskIdSelector, (tasks, id) => tasks.find(task => task.id === id));
 export const getCommentsByTaskId = createSelector(commentsSelector, openTaskIdSelector, (comments, id) => comments.filter(comment => comment.taskId === id));

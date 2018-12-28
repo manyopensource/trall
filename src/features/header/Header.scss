@@ -10,6 +10,10 @@ $paddingValue: 20px;
     &__leftside {
         display: inline-block;
         vertical-align: top;
+        float: left;
+    }
+    &__rightside {
+        float: right;
     }
     &__trademark {
         color: $colorpoint2;
@@ -24,7 +28,6 @@ $paddingValue: 20px;
     }
     &__company {
         font-size: 18px;
-        // font-weight: normal;
         margin-left: 10px;
     }
 }

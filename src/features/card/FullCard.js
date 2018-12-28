@@ -221,7 +221,9 @@ FullCard.propTypes = {
   users: PropTypes.array.isRequired,
   isShown: PropTypes.number,
   lastCommentId: PropTypes.number,
-  taskId: PropTypes.number
+  taskId: PropTypes.number.isRequired,
+  updateTask: PropTypes.func.isRequired,
+  createComment: PropTypes.func.isRequired
 };
 
 export default FullCard;

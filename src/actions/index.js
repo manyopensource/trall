@@ -6,7 +6,8 @@ import {
   OPEN_CARD,
   CLOSE_CARD,
   UPDATE_LIST,
-  CREATE_COMMENT
+  CREATE_COMMENT,
+  CREATE_USER
 } from '../constants/ActionTypes';
 
 export const initData = data => ({
@@ -46,4 +47,9 @@ export const updateList = list => ({
 export const createComment = comment => ({
   type: CREATE_COMMENT,
   payload: comment
+});
+
+export const createUser = user => ({
+  type: CREATE_USER,
+  payload: user
 });
