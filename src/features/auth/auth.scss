@@ -1,0 +1,64 @@
+@import './../../variables';
+.auth {
+    $this: &;
+    background: $secondaryColor;
+    padding: 22px 24px;
+    line-height: 1em;
+    &__title {
+        font-size: 22px;
+        font-weight: bold;
+    }
+    &__content {
+        margin-top: 20px;
+    }
+    &__row {
+        margin-top: 12px;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    &__field {
+        font-family: $fontFamily;
+        padding: 11px;
+        font-size: 16px;
+        border: 1px solid transparent;
+        outline: none;
+        border-radius: 3px;
+        line-height: 16px;
+        background: rgba(#000, 0.1);
+        // background: $mainColor;
+        height: 16px;
+        width: 250px;
+        &--mg-right {
+            margin-right: 12px;
+        }
+        &:focus {
+            box-shadow: 0 0 2px 2px rgba(#ffdd06, 1);
+            border-color: #ffdd06;
+            background: white;
+        }
+    }
+    &__btn {
+        display: inline-block;
+        vertical-align: top;
+        color: white;
+        background: $mainColor;
+        border-radius: 3px;
+        padding: 12px;
+        cursor: pointer;
+        user-select: none;
+        font-size: 16px;
+        line-height: 1em;
+        font-weight: bold;
+        text-align: center;
+        &--filled {
+            width: 250px;
+        }
+        &:hover {
+            background: darken($mainColor, 6%);
+        }
+        &:active {
+            background: darken($mainColor, 12%);
+        }
+    }
+}
