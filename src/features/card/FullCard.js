@@ -70,14 +70,18 @@ class FullCard extends Component {
     return (
       <div className="full-card">
         <div className="full-card__title">{this.props.task.title}</div>
+        <Textarea
+          class="full-card__title full-card__title--area"
+          defaultValue={this.props.task.title}
+        />
         <div className="full-card__subtitle">Description</div>
         <div className="full-card__description">
-          {this.props.task.description}
           <Textarea
             className="full-card__description-area"
             onChange={this.handleSaveDescription}
             placeholder="Add a more detailed description..."
             minRows={2}
+            value={this.props.task.description}
           />
         </div>
         <div className="full-card__subtitle">Comments</div>
@@ -103,7 +107,6 @@ class FullCard extends Component {
           </span>
         </div>
         <div className="full-card__comments">{comments}</div>
-        {/* <div className="full-card__comments-block" /> */}
       </div>
     );
   };

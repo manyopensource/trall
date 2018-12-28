@@ -12,6 +12,26 @@ $shadow: rgba($border, 0.8);
     white-space: pre-wrap;
     overflow-wrap: break-word;
     font-weight: bold;
+    line-height: 26px;
+    &--area {
+      border: none;
+      resize: none;
+      box-sizing: border-box;
+      width: 100%;
+      display: block;
+      border-radius: 3px;
+      font-family: $fontFamily;
+      outline: none;
+      border: 1px solid transparent;
+      padding: 2px 4px;
+      margin: -3px -5px;
+      background: transparent;
+      &:focus {
+        border-color: rgb(255, 230, 0);
+        box-shadow: 0 0 2px 2px yellow;
+        background: white;
+      }
+    }
   }
   &__subtitle {
     font-size: 18px;
