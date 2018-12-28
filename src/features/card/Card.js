@@ -8,17 +8,19 @@ class Card extends Component {
     super(props);
 
     this.state = {
-      isEditMode: false,
-    }
+      isEditMode: false
+    };
   }
-  
+
   openCard = () => {
     this.props.openCard(this.props.id);
-    const isScroll = document.body.clientHeight > document.documentElement.clientHeight;
+    const isScroll =
+      document.body.clientHeight > document.documentElement.clientHeight;
     if (isScroll) {
       document.body.style.overflow = 'hidden';
       if (this.props.nativeScrollbarWidth) {
-        document.body.style.paddingRight = this.props.nativeScrollbarWidth + 'px';
+        document.body.style.paddingRight =
+          this.props.nativeScrollbarWidth + 'px';
       }
     }
   };
@@ -33,7 +35,7 @@ class Card extends Component {
     this.setState({
       isEditMode: bool
     });
-  }
+  };
 
   deleteCard = () => {
     this.props.deleteTask(this.props.id);
@@ -47,7 +49,6 @@ class Card extends Component {
     return (
       <div className="card" onDoubleClick={this.editCard}>
         <div className="card__text">
-          
           <span className="card__title">{this.props.title}</span>
         </div>
         <div className="card__btns">
@@ -64,7 +65,7 @@ class Card extends Component {
         <b className="card__id">#{this.props.id}</b>
       </div>
     );
-  }
+  };
 
   render = () => {
     if (this.state.isEditMode) {
@@ -78,6 +79,6 @@ Card.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   nativeScrollbarWidth: PropTypes.number
-}
+};
 
 export default Card;

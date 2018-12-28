@@ -8,11 +8,18 @@ $shadow: rgba($border, 0.8);
   background: $bg;
   color: #002d44;
   &__title {
-    font-size: 18px;
+    font-size: 22px;
     white-space: pre-wrap;
+    overflow-wrap: break-word;
+    font-weight: bold;
+  }
+  &__subtitle {
+    font-size: 18px;
+    margin-top: 25px;
+    font-weight: bold;
   }
   &__description {
-
+    margin-top: 10px;
   }
   &__description-area {
     width: 395px;
@@ -32,9 +39,6 @@ $shadow: rgba($border, 0.8);
   }
   &__comments-block {
     margin-top: 20px;
-  }
-  &__comments-block-title {
-    font-size: 18px;
   }
   &__comment-adding-block {
     margin-top: 10px;

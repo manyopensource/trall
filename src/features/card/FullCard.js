@@ -70,6 +70,7 @@ class FullCard extends Component {
     return (
       <div className="full-card">
         <div className="full-card__title">{this.props.task.title}</div>
+        <div className="full-card__subtitle">Description</div>
         <div className="full-card__description">
           {this.props.task.description}
           <Textarea
@@ -79,31 +80,30 @@ class FullCard extends Component {
             minRows={2}
           />
         </div>
-        <div className="full-card__comments-block">
-          <div className="full-card__comments-block-title">Комментарии</div>
-          <div className="full-card__comment-adding-block">
-            <Textarea
-              inputRef={tag => (this.textarea = tag)}
-              minRows={3}
-              className="full-card__new-comment-textarea"
-              placeholder="Leave a comment..."
-              onChange={this.handleSaveValue}
-              value={this.state.textvalue}
-            />
-            <span
-              className={
-                this.state.textvalue.trim() === ''
-                  ? 'full-card__add-comment-button full-card__add-comment-button--disabled'
-                  : 'full-card__add-comment-button'
-              }
-              ref={btn => (this.btn = btn)}
-              onClick={this.handleClick}
-            >
-              Add Comment
-            </span>
-          </div>
-          <div className="full-card__comments">{comments}</div>
+        <div className="full-card__subtitle">Comments</div>
+        <div className="full-card__comment-adding-block">
+          <Textarea
+            inputRef={tag => (this.textarea = tag)}
+            minRows={3}
+            className="full-card__new-comment-textarea"
+            placeholder="Leave a comment..."
+            onChange={this.handleSaveValue}
+            value={this.state.textvalue}
+          />
+          <span
+            className={
+              this.state.textvalue.trim() === ''
+                ? 'full-card__add-comment-button full-card__add-comment-button--disabled'
+                : 'full-card__add-comment-button'
+            }
+            ref={btn => (this.btn = btn)}
+            onClick={this.handleClick}
+          >
+            Add comment
+          </span>
         </div>
+        <div className="full-card__comments">{comments}</div>
+        {/* <div className="full-card__comments-block" /> */}
       </div>
     );
   };
