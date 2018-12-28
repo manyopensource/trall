@@ -9,9 +9,14 @@ $border: rgb(240, 238, 109);
     }
     &__user-link {
         color: rgb(57, 192, 63);
+        margin-right: 12px;
         &:hover {
             text-decoration: none;
         }
+    }
+    &__user-email {
+        color: rgba(rgb(121, 145, 78), 0.5);
+        font-size: 13x;
     }
     &__text {
         white-space: pre-wrap;

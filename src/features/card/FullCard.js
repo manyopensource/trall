@@ -57,7 +57,7 @@ class FullCard extends Component {
     this.props.createComment({
       id: this.props.lastCommentId + 1,
       taskId: this.props.taskId,
-      userId: 1,
+      userId: this.props.user ? this.props.user.id : 1,
       text: textvalue
     });
     this.setState({
@@ -110,7 +110,7 @@ class FullCard extends Component {
       id: this.props.task.id,
       listId: this.props.task.listId,
       title: this.state.title,
-      description: this.state.description,
+      description: this.state.description
     });
   };
 
@@ -122,7 +122,7 @@ class FullCard extends Component {
       id: this.props.task.id,
       listId: this.props.task.listId,
       title: this.state.title,
-      description: this.state.description,
+      description: this.state.description
     });
   };
 
@@ -223,7 +223,8 @@ FullCard.propTypes = {
   lastCommentId: PropTypes.number,
   taskId: PropTypes.number.isRequired,
   updateTask: PropTypes.func.isRequired,
-  createComment: PropTypes.func.isRequired
+  createComment: PropTypes.func.isRequired,
+  user: PropTypes.object
 };
 
 export default FullCard;
