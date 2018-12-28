@@ -47,7 +47,7 @@ class Register extends Component {
       email: this.state.email
     };
     this.props.createUser(user);
-    this.props.changeAuthState(true);
+    this.props.changeAuthState(true, user);
     document.body.style.removeProperty('overflow');
     document.body.style.removeProperty('padding-right');
   };
