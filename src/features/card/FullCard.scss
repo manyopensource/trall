@@ -13,6 +13,10 @@ $shadow: rgba($border, 0.8);
     overflow-wrap: break-word;
     font-weight: bold;
     line-height: 26px;
+    cursor: pointer;
+    &--hidden {
+      display: none!important;
+    }
     &--area {
       border: none;
       resize: none;
@@ -26,6 +30,7 @@ $shadow: rgba($border, 0.8);
       padding: 2px 4px;
       margin: -3px -5px;
       background: transparent;
+      cursor: text;
       &:focus {
         border-color: rgb(255, 230, 0);
         box-shadow: 0 0 2px 2px yellow;
@@ -40,21 +45,37 @@ $shadow: rgba($border, 0.8);
   }
   &__description {
     margin-top: 10px;
-  }
-  &__description-area {
     width: 395px;
     padding: 12px;
     border-radius: 3px;
-    resize: none;
     border: 1px solid transparent;
-    outline: none;
     background: rgba(#000, 0.1);
     font-size: 14px;
     font-family: $fontFamily;
-    &:focus {
-      border-color: rgb(255, 230, 0);
-      box-shadow: 0 0 2px 2px yellow;
-      background: white;
+    display: block;
+    cursor: pointer;
+    &-empty {
+      color: gray;
+      min-height: 34px;
+      display: block;
+      line-height: 18px;
+      user-select: none;
+      &--hidden {
+        display: none!important;
+      }
+    }
+    &--hidden {
+      display: none!important;
+    }
+    &--area {
+      resize: none;
+      outline: none;
+      cursor: text;
+      &:focus {
+        border-color: rgb(255, 230, 0);
+        box-shadow: 0 0 2px 2px yellow;
+        background: white;
+      }
     }
   }
   &__comments-block {

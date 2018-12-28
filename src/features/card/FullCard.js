@@ -9,7 +9,11 @@ class FullCard extends Component {
     super(props);
 
     this.state = {
-      textvalue: ''
+      textvalue: '',
+      title: this.props.task.title,
+      description: this.props.task.description,
+      isTitleEditable: false,
+      isDescriptionEditable: false
     };
   }
 
@@ -62,6 +66,66 @@ class FullCard extends Component {
     this.textarea.focus();
   };
 
+  handleSaveTitle = e => {
+    const title = e.target.value;
+    this.setState({
+      title: title
+    });
+  };
+
+  handleSaveDescription = e => {
+    const description = e.target.value;
+    this.setState({
+      description: description
+    });
+  };
+
+  handleClickOnTitle = e => {
+    this.setState(
+      {
+        isTitleEditable: true
+      },
+      () => {
+        this.Title.focus();
+      }
+    );
+  };
+
+  handleClickOnDescription = e => {
+    this.setState(
+      {
+        isDescriptionEditable: true
+      },
+      () => {
+        this.Description.focus();
+      }
+    );
+  };
+
+  handleBlurOnTitle = e => {
+    this.setState({
+      isTitleEditable: false
+    });
+    this.props.updateTask({
+      id: this.props.task.id,
+      listId: this.props.task.listId,
+      title: this.state.title,
+      description: this.state.description,
+    });
+  };
+
+  handleBlurOnDescription = e => {
+    this.setState({
+      isDescriptionEditable: false
+    });
+    this.props.updateTask({
+      id: this.props.task.id,
+      listId: this.props.task.listId,
+      title: this.state.title,
+      description: this.state.description,
+    });
+  };
+
   render = () => {
     let comments = this.props.comments.map((comment, index) => {
       const user = this.props.users.find(user => user.id === comment.userId);
@@ -69,21 +133,60 @@ class FullCard extends Component {
     });
     return (
       <div className="full-card">
-        <div className="full-card__title">{this.props.task.title}</div>
+        <div
+          className={
+            !this.state.isTitleEditable
+              ? 'full-card__title'
+              : 'full-card__title full-card__title--hidden'
+          }
+          onClick={this.handleClickOnTitle}
+        >
+          {this.props.task.title}
+        </div>
         <Textarea
-          class="full-card__title full-card__title--area"
-          defaultValue={this.props.task.title}
+          className={
+            this.state.isTitleEditable
+              ? 'full-card__title full-card__title--area'
+              : 'full-card__title full-card__title--area full-card__title--hidden'
+          }
+          inputRef={tag => (this.Title = tag)}
+          onChange={this.handleSaveTitle}
+          onBlur={this.handleBlurOnTitle}
+          value={this.state.title}
         />
         <div className="full-card__subtitle">Description</div>
-        <div className="full-card__description">
-          <Textarea
-            className="full-card__description-area"
-            onChange={this.handleSaveDescription}
-            placeholder="Add a more detailed description..."
-            minRows={2}
-            value={this.props.task.description}
-          />
+        <div
+          className={
+            !this.state.isDescriptionEditable
+              ? 'full-card__description'
+              : 'full-card__description full-card__description--hidden'
+          }
+          onClick={this.handleClickOnDescription}
+        >
+          {this.props.task.description}
+          <span
+            className={
+              this.props.task.description !== ''
+                ? 'full-card__description-empty full-card__description-empty--hidden'
+                : 'full-card__description-empty'
+            }
+          >
+            Add a more detailed description...
+          </span>
         </div>
+        <Textarea
+          className={
+            this.state.isDescriptionEditable
+              ? 'full-card__description full-card__description--area'
+              : 'full-card__description full-card__description--area full-card__description--hidden'
+          }
+          inputRef={tag => (this.Description = tag)}
+          onChange={this.handleSaveDescription}
+          onBlur={this.handleBlurOnDescription}
+          placeholder="Add a more detailed description..."
+          minRows={4}
+          defaultValue={this.state.description}
+        />
         <div className="full-card__subtitle">Comments</div>
         <div className="full-card__comment-adding-block">
           <Textarea

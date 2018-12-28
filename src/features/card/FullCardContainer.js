@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import FullCard from './FullCard';
-import { createComment } from '../../actions';
+import { updateTask, createComment } from '../../actions';
 import { getTaskById, getCommentsByTaskId, getLastCommentId } from './../../selectors';
 
 const mapStateToProps = state => {
@@ -17,6 +17,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return bindActionCreators(
     {
+      updateTask,
       createComment
     },
     dispatch
