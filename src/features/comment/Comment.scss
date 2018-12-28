@@ -7,7 +7,14 @@ $border: rgb(240, 238, 109);
     &__user {
 
     }
+    &__user-link {
+        color: rgb(57, 192, 63);
+        &:hover {
+            text-decoration: none;
+        }
+    }
     &__text {
         white-space: pre-wrap;
+        margin-top: 6px;
     }
 }

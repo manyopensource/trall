@@ -8,7 +8,7 @@ class Comment extends Component {
     return (
       <div className="comment">
         <div className="comment__user">
-          <a href={uri}>{this.props.user.name}</a>
+          <a href={uri} className="comment__user-link">{this.props.user.name}</a>
         </div>
         <div className="comment__text">{this.props.text}</div>
       </div>
