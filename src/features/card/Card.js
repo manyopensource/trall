@@ -47,7 +47,7 @@ class Card extends Component {
     return (
       <div className="card" onDoubleClick={this.editCard}>
         <div className="card__text">
-          <b className="card__id">#{this.props.id}</b>
+          
           <span className="card__title">{this.props.title}</span>
         </div>
         <div className="card__btns">
@@ -61,6 +61,7 @@ class Card extends Component {
             delete
           </b>
         </div>
+        <b className="card__id">#{this.props.id}</b>
       </div>
     );
   }

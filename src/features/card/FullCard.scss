@@ -11,6 +11,25 @@ $shadow: rgba($border, 0.8);
     font-size: 18px;
     white-space: pre-wrap;
   }
+  &__description {
+
+  }
+  &__description-area {
+    width: 395px;
+    padding: 12px;
+    border-radius: 3px;
+    resize: none;
+    border: 1px solid transparent;
+    outline: none;
+    background: rgba(#000, 0.1);
+    font-size: 14px;
+    font-family: $fontFamily;
+    &:focus {
+      border-color: rgb(255, 230, 0);
+      box-shadow: 0 0 2px 2px yellow;
+      background: white;
+    }
+  }
   &__comments-block {
     margin-top: 20px;
   }

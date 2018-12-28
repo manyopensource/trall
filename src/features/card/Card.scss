@@ -4,6 +4,7 @@
     padding: 12px;
     margin: 12px;
     box-shadow: 0 2px 6px rgba(51, 51, 51, 0.2);
+    position: relative;
     &:first-child {
         margin-top: 0;
     }
@@ -12,6 +13,14 @@
         margin-right: 6px;
         color: #999;
         user-select: none;
+        position: absolute;
+        bottom: 0;
+        right: -6px;
+        background: #bbb;
+        color: white;
+        padding: 2px 6px;
+        border-radius: 6px 0;
+        font-size: 12px;
     }
     &__text {
         font-size: 14px;
@@ -19,6 +28,7 @@
         color: #333;
         white-space: pre-wrap;
         line-height: 1.3em;
+        overflow-wrap: break-word;
     }
     &__btn {
         font-size: 12px;

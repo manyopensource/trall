@@ -72,6 +72,12 @@ class FullCard extends Component {
         <div className="full-card__title">{this.props.task.title}</div>
         <div className="full-card__description">
           {this.props.task.description}
+          <Textarea
+            className="full-card__description-area"
+            onChange={this.handleSaveDescription}
+            placeholder="Add a more detailed description..."
+            minRows={2}
+          />
         </div>
         <div className="full-card__comments-block">
           <div className="full-card__comments-block-title">Комментарии</div>
