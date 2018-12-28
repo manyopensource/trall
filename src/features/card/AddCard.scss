@@ -24,6 +24,11 @@ $main_btn: #e40069;
         border-radius: 6px;
         padding: 12px;
         box-shadow: 0 2px 6px rgba(51, 51, 51, 0.2);
+        transition: box-shadow 0.2s ease;
+        &:focus {
+            box-shadow: 0 0 0px 4px white;
+            border-radius: 4px;
+        }
     }
     &__bar {
         margin-top: 12px;
