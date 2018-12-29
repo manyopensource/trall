@@ -59,9 +59,9 @@ class App extends Component {
         <Modal isOpen={this.props.global.openTaskId}>
           <FullCard user={this.state.user} />
         </Modal>
-        {/* <Modal closeDisabled={!this.state.isUserLogged} isOpen={!this.state.isUserLogged}>
+        <Modal closeDisabled={!this.state.isUserLogged} isOpen={!this.state.isUserLogged}>
           <Register changeAuthState={this.handleChangeAuthState} />
-        </Modal> */}
+        </Modal>
       </div>
     );
   };
