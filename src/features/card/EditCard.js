@@ -6,7 +6,7 @@ class EditCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: this.props.title
+      value: this.props.task.title
     };
   }
 
@@ -50,10 +50,10 @@ class EditCard extends Component {
       return false;
     }
     this.props.updateTask({
-      id: this.props.id,
-      listId: this.props.listId,
+      id: this.props.task.id,
+      listId: this.props.task.listId,
       title: title,
-      description: ''
+      description: this.props.task.description
     });
     this.props.changeMode(false);
   };
@@ -80,10 +80,8 @@ class EditCard extends Component {
 }
 
 EditCard.propTypes = {
-  id: PropTypes.number.isRequired,
-  listId: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
   changeMode: PropTypes.func.isRequired
-}
+};
 
 export default EditCard;

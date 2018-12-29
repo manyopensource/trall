@@ -6,7 +6,13 @@ import './Board.scss';
 class Board extends Component {
   render = () => {
     const lists = this.props.lists.map(list => {
-      return <List {...this.props} key={list.id} id={list.id} name={list.name}  />;
+      return (
+        <List
+          key={list.id}
+          list={list}
+          nativeScrollbarWidth={this.props.nativeScrollbarWidth}
+        />
+      );
     });
     return (
       <div className="board">
@@ -18,7 +24,8 @@ class Board extends Component {
 }
 
 Board.propTypes = {
-  lists: PropTypes.array.isRequired
-}
+  lists: PropTypes.array.isRequired,
+  nativeScrollbarWidth: PropTypes.number
+};
 
 export default Board;

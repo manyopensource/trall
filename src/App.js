@@ -16,7 +16,7 @@ class App extends Component {
       nativeScrollbarWidth: null,
       isUserLogged: false,
       user: null
-    }
+    };
   }
   componentDidMount() {
     this.props.initData(data);
@@ -45,13 +45,16 @@ class App extends Component {
       isUserLogged: bool,
       user: user
     });
-  }
+  };
 
   render = () => {
     return (
       <div className="global-space">
         <Header user={this.state.user} />
-        <Board {...this.props} {...this.state} />
+        <Board
+          nativeScrollbarWidth={this.state.nativeScrollbarWidth}
+          lists={this.props.lists}
+        />
         <Footer />
         <Modal isOpen={this.props.global.openTaskId}>
           <FullCard user={this.state.user} />
@@ -67,6 +70,6 @@ class App extends Component {
 App.propTypes = {
   initData: PropTypes.func.isRequired,
   global: PropTypes.object
-}
+};
 
 export default App;

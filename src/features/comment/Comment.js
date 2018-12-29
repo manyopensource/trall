@@ -11,15 +11,15 @@ class Comment extends Component {
           <a href={uri} className="comment__user-link">{this.props.user.name}</a>
           <span className="comment__user-email">{this.props.user.email}</span>
         </div>
-        <div className="comment__text">{this.props.text}</div>
+        <div className="comment__text">{this.props.comment.text}</div>
       </div>
     );
   };
 }
 
 Comment.propTypes = {
-  user: PropTypes.object.isRequired,
-  text: PropTypes.string.isRequired
+  comment: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };
 
 export default Comment;

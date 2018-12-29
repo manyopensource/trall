@@ -6,11 +6,7 @@ import App from './App';
 
 const mapStateToProps = state => {
   return {
-    users: getUsers(state),
-    boards: state.boards,
     lists: state.lists,
-    tasks: state.tasks,
-    comments: state.comments,
     global: state.global
   };
 };

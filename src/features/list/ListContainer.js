@@ -8,7 +8,7 @@ const mapStateToProps = () => {
   const getTasksByListId = createGetTasksByListId();
   return (state, props) => {
     return {
-      tasks: getTasksByListId(state, props.id)
+      tasks: getTasksByListId(state, props.list.id)
     };
   };
 };
@@ -20,6 +20,9 @@ const mapDispathToProps = dispatch => {
     },
     dispatch
   );
-}
+};
 
-export default connect(mapStateToProps, mapDispathToProps)(List);
+export default connect(
+  mapStateToProps,
+  mapDispathToProps
+)(List);

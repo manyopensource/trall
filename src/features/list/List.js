@@ -11,7 +11,7 @@ class List extends Component {
     this.state = {
       isAddBlockShown: false,
       isShielded: true,
-      value: this.props.name
+      value: this.props.list.name
     };
   }
 
@@ -63,13 +63,13 @@ class List extends Component {
   updateList = () => {
     let name = this.state.value.trim();
     if (name === '') {
-      name = this.props.name;
+      name = this.props.list.name;
       this.setState({
         value: name
       });
     }
     this.props.updateList({
-      id: this.props.id,
+      id: this.props.list.id,
       boardId: 1,
       name: name
     });
@@ -93,11 +93,9 @@ class List extends Component {
     const cards = this.props.tasks.map(task => {
       return (
         <Card
-          {...this.props}
           key={task.id}
-          listId={this.props.id}
-          id={task.id}
-          title={task.title}
+          task={task}
+          nativeScrollbarWidth={this.props.nativeScrollbarWidth}
         />
       );
     });
@@ -121,7 +119,7 @@ class List extends Component {
               }
               ref={listname => (this.listname = listname)}
             >
-              {this.props.name}
+              {this.props.list.name}
             </div>
             <Textarea
               className={
@@ -140,7 +138,7 @@ class List extends Component {
             {cards}
             {this.state.isAddBlockShown && (
               <AddCard
-                listId={this.props.id}
+                listId={this.props.list.id}
                 changeAddBlock={this.handleChangeAddBlock}
               />
             )}
@@ -158,7 +156,9 @@ class List extends Component {
 
 List.propTypes = {
   tasks: PropTypes.array.isRequired,
-  name: PropTypes.string.isRequired
-}
+  list: PropTypes.object.isRequired,
+  updateList: PropTypes.func.isRequired,
+  nativeScrollbarWidth: PropTypes.number
+};
 
 export default List;

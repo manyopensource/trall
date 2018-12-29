@@ -7,7 +7,6 @@ import './FullCard.scss';
 class FullCard extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       textvalue: '',
       title: this.props.task.title,
@@ -129,7 +128,7 @@ class FullCard extends Component {
   render = () => {
     let comments = this.props.comments.map((comment, index) => {
       const user = this.props.users.find(user => user.id === comment.userId);
-      return <Comment key={index} {...comment} user={user} />;
+      return <Comment key={index} comment={comment} user={user} />;
     });
     return (
       <div className="full-card">
@@ -219,8 +218,7 @@ FullCard.propTypes = {
   task: PropTypes.object.isRequired,
   comments: PropTypes.array.isRequired,
   users: PropTypes.array.isRequired,
-  isShown: PropTypes.number,
-  lastCommentId: PropTypes.number,
+  lastCommentId: PropTypes.number.isRequired,
   taskId: PropTypes.number.isRequired,
   updateTask: PropTypes.func.isRequired,
   createComment: PropTypes.func.isRequired,

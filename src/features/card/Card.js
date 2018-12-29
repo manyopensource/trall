@@ -13,7 +13,7 @@ class Card extends Component {
   }
 
   openCard = () => {
-    this.props.openCard(this.props.id);
+    this.props.openCard(this.props.task.id);
     const isScroll =
       document.body.clientHeight > document.documentElement.clientHeight;
     if (isScroll) {
@@ -38,18 +38,23 @@ class Card extends Component {
   };
 
   deleteCard = () => {
-    this.props.deleteTask(this.props.id);
+    this.props.deleteTask(this.props.task.id);
   };
 
   renderEditCard = () => {
-    return <EditCard {...this.props} changeMode={this.handleChangeMode} />;
+    return (
+      <EditCard
+        task={this.props.task}
+        changeMode={this.handleChangeMode}
+      />
+    );
   };
 
   renderCard = () => {
     return (
       <div className="card" onDoubleClick={this.editCard}>
         <div className="card__text">
-          <span className="card__title">{this.props.title}</span>
+          <span className="card__title">{this.props.task.title}</span>
         </div>
         <div className="card__btns">
           <b className="card__btn card__btn-open" onClick={this.openCard}>
@@ -62,7 +67,7 @@ class Card extends Component {
             delete
           </b>
         </div>
-        <b className="card__id">#{this.props.id}</b>
+        <b className="card__id">#{this.props.task.id}</b>
       </div>
     );
   };
@@ -76,9 +81,10 @@ class Card extends Component {
 }
 
 Card.propTypes = {
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  nativeScrollbarWidth: PropTypes.number
+  task: PropTypes.object.isRequired,
+  nativeScrollbarWidth: PropTypes.number,
+  deleteTask: PropTypes.func.isRequired,
+  openCard: PropTypes.func.isRequired
 };
 
 export default Card;
