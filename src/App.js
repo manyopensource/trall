@@ -21,7 +21,7 @@ class App extends Component {
   componentDidMount() {
     this.props.initData(data);
 
-    var scrollbarElement = document.createElement('div');
+    const scrollbarElement = document.createElement('div');
     scrollbarElement.style.position = 'absolute';
     scrollbarElement.style.visibility = 'hidden';
     scrollbarElement.style.width = '100px';
@@ -56,9 +56,9 @@ class App extends Component {
         <Modal isOpen={this.props.global.openTaskId}>
           <FullCard user={this.state.user} />
         </Modal>
-        <Modal closeDisabled={!this.state.isUserLogged} isOpen={!this.state.isUserLogged}>
+        {/* <Modal closeDisabled={!this.state.isUserLogged} isOpen={!this.state.isUserLogged}>
           <Register changeAuthState={this.handleChangeAuthState} />
-        </Modal>
+        </Modal> */}
       </div>
     );
   };

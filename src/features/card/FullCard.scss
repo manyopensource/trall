@@ -53,6 +53,9 @@ $shadow: rgba($border, 0.8);
     font-size: 14px;
     font-family: $fontFamily;
     display: block;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    line-height: 22px;
     cursor: pointer;
     &-empty {
       color: gray;
