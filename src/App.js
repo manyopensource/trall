@@ -69,6 +69,7 @@ class App extends Component {
 
 App.propTypes = {
   initData: PropTypes.func.isRequired,
+  lists: PropTypes.array.isRequired,
   global: PropTypes.object
 };
 
